@@ -1,0 +1,18 @@
+/* pages/myCoin/myCoin.wxss */
+.coin-list{
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+.coin-list .info view{
+  font-size: 30rpx;
+}
+.coin-list .info text{
+  font-size: 24rpx;
+  color: #777;
+}
+.coin-list .money{
+  font-size: 40rpx;
+  color: #e76705;
+  margin-right: 40rpx;
+}

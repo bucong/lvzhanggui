@@ -1,0 +1,17 @@
+<!--pages/pay/pay.wxml-->
+<view class="total-fee">总金额：{{totalFee}}元</view>
+<view class="actual-fee flex">
+  <view style="color: #99a4bf;">实付金额</view>
+  <text>￥{{actualFee}}</text>
+</view>
+<view class="pay-style">选择支付方式</view>
+<view class="pay-list">
+  <radio-group bindchange="radioChange">
+    <view class="flex" wx:for="{{payList}}" wx:key="key">
+      <image src="../images/pay{{item.id}}.png"></image>
+      <text>{{item.name}}</text>
+      <radio value="{{item.id}}" name="pay" checked="" />
+    </view>
+  </radio-group>
+</view>
+<button class="pay" bindtap="requestPayment" loading="{{loading}}">{{actualFee}}元 确认支付</button>

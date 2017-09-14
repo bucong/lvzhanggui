@@ -1,0 +1,105 @@
+<!--index.wxml-->
+<view class='carousel-head'>
+  <swiper indicator-dots="true"
+    autoplay="auto" duration="500" class="carousel-box">
+    <block wx:for="{{carousel}}" wx:key="key">
+      <swiper-item>
+        <image src="{{ip}}{{item.img}}" class="carousel-img"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="search" style="background: {{searchbg}};background-size: 640rpx;">
+    <input type="text" bindinput="search" bindconfirm="searchAct" />
+  </view>
+</view>
+<view class="nav-icon">
+  <navigator url="{{item.url}}" wx:for="{{navIcon}}" wx:key="key">
+    <image src="{{item.img}}"></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<view class="spacing"></view>
+<view class="indTime flex">
+  <view data-time="thisMon" class="{{timeTab=='thisMon' ? 'active':''}}" bindtap="timeTab">本月</view>
+  <view data-time="nextMon" class="{{timeTab=='nextMon' ? 'active':''}}" bindtap="timeTab">下月</view>
+  <view data-time="holiday" class="{{timeTab=='holiday' ? 'active':''}}" bindtap="timeTab">节假日</view>
+</view>
+<view class="swiper-container">  
+  <swiper autoplay="" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper act" style='height:{{actHeight}}rpx'>  
+    <block  wx:key="unique" wx:for="{{act}}" wx:key="key">  
+      <swiper-item class="act-list">  
+        <navigator url="../detail/detail?infoId={{item.infoId}}" wx:for="{{item}}" wx:key="key">
+          <view style="background-image: url({{ip}}{{item.actImg}});" class="act-img"></view>  
+          <view class="decribe">
+            <view>{{item.actName}}</view>
+            <text>{{item.startTime}}</text>
+            <image src="../images/status{{item.applayStatus}}.png"></image>
+          </view>
+        </navigator>
+      </swiper-item> 
+    </block>  
+  </swiper>  
+   
+  <view class="dots">  
+    <block wx:for="{{act}}" wx:key="unique">  
+      <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>  
+    </block>  
+  </view>  
+</view>  
+<view class="spacing"></view>
+<view class="flex tit">
+  <image src="../images/ind_56.png"></image>
+  <view>精品推荐</view>
+  <image src="../images/ind_56.png"></image>
+</view>
+<navigator url="../detail/detail?infoId={{item.id}}" class="command" wx:for="{{command}}" wx:key="key">
+  <image src="{{ip}}{{item.actImg}}" class="show-img"></image>
+  <view class="status">HOT</view>
+  <view class="flex">
+    <text>{{item.actName}}</text>
+    <!-- <view>
+      <image src="../images/foot.png"></image>
+      <text>{{item.decribe}}</text>
+    </view> -->
+  </view>
+</navigator>
+<!-- 隐藏 -->
+<!-- <view class="spacing"></view>
+<view class="flex tit">
+  <image src="../images/ind_56.png"></image>
+  <view>猜你喜欢</view>
+  <image src="../images/ind_56.png"></image>
+</view>
+<navigator url="" class="command" wx:for="{{like}}" wx:key="key">
+  <image src="{{item.img}}" class="show-img"></image>
+  <view class="flex">
+    <text>{{item.name}}</text>
+    <view>
+      <image src="../images/foot.png"></image>
+      <text>{{item.decribe}}</text>
+    </view>
+  </view>
+</navigator> -->
+<view class="bottom-spacing"></view>
+<view class="nav flex">
+  <navigator url="../index/index" class="active" redirect>
+    <image src="../images/nav1.png"></image>
+    <image src="../images/nav2.png"></image>
+    <text>首页</text>
+  </navigator>
+  <navigator url="../classify/classify" redirect>
+    <image src="../images/nav3.png"></image>
+    <image src="../images/nav4.png"></image>
+    <text>分类</text>
+  </navigator>
+  <!-- <navigator url="../order/order" redirect>
+    <image src="../images/nav5.png"></image>
+    <image src="../images/nav6.png"></image>
+    <text>订单</text>
+  </navigator> -->
+  <navigator url="../people/people" redirect>
+    <image src="../images/nav7.png"></image>
+    <image src="../images/nav8.png"></image>
+    <text>我的</text>
+  </navigator>
+</view>

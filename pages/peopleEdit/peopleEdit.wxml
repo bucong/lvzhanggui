@@ -1,0 +1,46 @@
+<!--pages/peopleEdit/peopleEdit.wxml-->
+<view class='info'>
+  <view class='list flex' data-editaim='name' bindtap='edit'>
+    <view>
+      姓名：<text>{{name}}</text>
+    </view>
+    <image src='../images/detail_07.png'></image>
+  </view>
+  <view class='list flex'>
+    <view>
+      昵称：<text>{{nickName}}</text>
+    </view>
+  </view>
+  <view class='list flex'>
+    <view>
+      手机：<text>{{mobile}}</text>
+    </view>
+  </view>
+  <view class='list flex' data-editaim='idNum' bindtap='edit'>
+    <view>
+      证件号：<text>{{idNum}}</text>
+    </view>
+    <image src='../images/detail_07.png'></image>
+  </view>
+  <view class='list flex' data-editaim='passport' bindtap='edit'>
+    <view>
+      护照号：<text>{{passport}}</text>
+    </view>
+    <image src='../images/detail_07.png'></image>
+  </view>
+  <view class='list flex' data-editaim='emerContact' bindtap='edit'>
+    <view>
+      紧急联系人：<text>{{emerContact}}</text>
+    </view>
+    <image src='../images/detail_07.png'></image>
+  </view>
+</view> 
+<view class='meng' style='display:{{mengshow}}'></view>
+<view class='meng-box' style='display:{{mengshow}}'>
+  <textarea value='{{value}}' placeholder='{{placeholder}}' bindinput='textInput'></textarea>
+  <view class='flex'>
+    <text class='btn' style='color:#777;' bindtap='chooseNo'>否</text>
+    <text>|</text>
+    <text class='btn' style='color:#ee2424;' bindtap='chooseYes'>是</text>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+/* pages/classify/classify.wxss */
+.classify{
+  padding: 20rpx 25rpx;
+}
+.classify navigator{
+  display: inline-block;
+  width: 140rpx;
+  padding: 10rpx 0;
+  text-align: center;
+}
+.classify text{
+  display: block;
+  text-align: center;
+  font-size: 22rpx;
+  color: #616266;
+}
+.type image{
+  width: 96rpx;
+  height: 92rpx;
+}
+.route image{
+  width: 96rpx;
+  height: 96rpx;
+}
+.difficult image{
+  width: 86rpx;
+  height: 80rpx;
+}
+.address{
+  padding: 30rpx 0;
+}
+.address navigator{
+  display: inline-block;
+  width: 246rpx;
+  text-align: center;
+  padding-bottom: 40rpx; 
+  margin-right: 6rpx;
+}
+.address navigator:nth-child(3n){
+  margin-right: 0;
+}
+.address image{
+  width: 246rpx;
+  height: 246rpx;
+}
+.address text{
+  font-size: 24rpx;
+}

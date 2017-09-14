@@ -1,0 +1,33 @@
+ {
+  "pages":[
+    "pages/index/index",
+    "pages/bindPhone/bindPhone",
+    "pages/travels/travels",
+    "pages/travelDetail/travelDetail",
+    "pages/myCoin/myCoin",
+    "pages/leaderDetail/leaderDetail",
+    "pages/leaderList/leaderList",
+    "pages/people/people",
+    "pages/peopleEdit/peopleEdit",
+    "pages/requestPay/requestPay",
+    "pages/myActivity/myActivity",
+    "pages/cardDetail/cardDetail",
+    "pages/cardList/cardList",
+    "pages/signInfo/signInfo",
+    "pages/pay/pay",
+    "pages/usualContact/usualContact",
+    "pages/order/order",
+    "pages/addPeople/addPeople",
+    "pages/actList/actList",
+    "pages/detail/detail",
+    "pages/map/map",
+    "pages/classify/classify",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "俱乐部",
+    "navigationBarTextStyle":"#fff"
+  }
+}

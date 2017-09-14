@@ -1,0 +1,10 @@
+<!--pages/actList/actList.wxml-->
+<navigator url="../detail/detail?infoId={{item.id}}" class="act-list" wx:for="{{actList}}" wx:key="key">
+  <image src="{{ip}}{{item.actImg}}" class="show-img"></image>
+  <view class="name">{{item.actName}}</view>
+  <view class="price">￥{{item.price}}</view>
+   <image src="../images/time.png" class="icon"></image> 
+  <text>{{item.startTime}}-{{item.endTime}}</text>
+   <image src="../images/people.png" class="icon"></image> 
+  <text>限{{item.applyLimit}}人</text>
+</navigator>

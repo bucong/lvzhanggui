@@ -1,0 +1,12 @@
+<!--pages/cardList/cardList.wxml-->
+<view class='cards'>
+  <navigator url='../cardDetail/cardDetail?id={{item.id}}' class='card-list' wx:for="{{cards}}" wx:key="key">
+    <image src='{{ip}}{{item.cardImg}}'></image>
+    <view class='detail-box'>
+      <view class='name'>{{item.name}}</view>
+      <view class='description'>{{item.description}}</view>
+      <view class='preference'>￥{{item.preferentialPrice}}</view>
+      <view class='originalPrice'>价格： <text>￥{{item.originalPrice}}</text></view>
+    </view>
+  </navigator>
+</view>

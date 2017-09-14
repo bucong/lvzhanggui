@@ -1,0 +1,270 @@
+/* pages/people/people.wxss */
+page{
+  background: #efeff4;
+}
+.people{
+  background: #3dbf7b;
+  color: #fff;
+  padding-left: 46rpx;
+  border-bottom: 1rpx solid #c1e7d1;
+}
+.people .info{
+  align-items: flex-start;
+  border-bottom: 1rpx solid #c1e7d1;
+  padding: 24rpx 24rpx 24rpx 0;
+}
+.people .info-head{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+}
+.people .flex .name{
+  font-size: 36rpx;
+  font-weight: 900;
+  margin-bottom: 10rpx;
+}
+.people .sex{
+  width: 26rpx;
+  height: 26rpx;
+}
+.people .sign{
+  color: #c1e7d1;
+  font-size: 24rpx;
+}
+.opertion-icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 30rpx;
+}
+.people .own{
+  font-size: 32rpx;
+  padding: 24rpx 50rpx 24rpx 0;
+  font-weight: 900;
+}
+.people .own text{
+  display: block;
+}
+.people .own .authority{
+  width: 172rpx;
+  height: 84rpx;
+  border: 4rpx solid #fff;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 84rpx;
+}
+.people-tab{
+  background: #3dbf7b;
+  justify-content: space-around;
+  height: 170rpx;
+}
+.people-tab view{
+  text-align: center;
+  width: 187rpx;
+  height: 140rpx;
+  padding-top: 30rpx;
+}
+.people-tab image{
+  width: 52rpx;
+  height: 46rpx;
+}
+.people-tab text{
+  display: block;
+  color: #fff;
+  font-size: 24rpx;
+}
+.people-tab .active{
+  font-weight: 900;
+  background: url("data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAeAAD/4QOPaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6YWY1MzZlOGMtMDczMy00MzM2LTk1ZDAtMzM1NDkwMmU3YjY2IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjUyMjE5NDQ0OEVCNDExRTc4RUM2OUZCRTU3QzA3OTVBIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjUyMjE5NDQzOEVCNDExRTc4RUM2OUZCRTU3QzA3OTVBIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE3IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjFmNzA4MTctNTM1NS00ZDJiLTkzN2EtOWM4ZjJmYzZlODExIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6NzEzZTFiMGUtYzllMS0xMTdhLWE3YmMtODgwODNmMzQxMDcxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAEAsLCwwLEAwMEBcPDQ8XGxQQEBQbHxcXFxcXHx4XGhoaGhceHiMlJyUjHi8vMzMvL0BAQEBAQEBAQEBAQEBAQAERDw8RExEVEhIVFBEUERQaFBYWFBomGhocGhomMCMeHh4eIzArLicnJy4rNTUwMDU1QEA/QEBAQEBAQEBAQEBA/8AAEQgAqwC7AwEiAAIRAQMRAf/EAI4AAQADAQEBAAAAAAAAAAAAAAAEBQYDAQIBAQADAQEAAAAAAAAAAAAAAAABAgMEBRABAAEBBAUIBwkAAAAAAAAAAAECERIDBCFBwRMFMVFhgTJCYhRxkaEiUkOD0eFygqLC0jMVEQEAAgEBBgQHAQAAAAAAAAAAAQIRAzFBUWESBIHB0UJxkaEiYnKSFP/aAAwDAQACEQMRAD8AkAMXhgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJWW4dmszZNFF2ie/Voj704TWtrTisTM8kaImZiIi2Z5IhZf4uN5TefP5d34eb0rHJcMwMrZV28X451fhhMXinF3aXZxiZ1NsxsjcyExMTMTFkxomJeNJnOG4Ga97sYvxxr9Ma1LmeG5rL2zVRfo+OnTHXzKzWYc+r219Pd1V4x5ooCrAAAAAAAAAHsWa7Ou3Y6U7vXc67+xKYjnEOQl0eX1+Xt8W/wBiTh3O75L81/8AeYjivFKb9SseFvRVutGWzGJ2MKurpimWhyur+j6KUnFeK8aehv1flWWcw+EZ6vloiiOeqY2WymYXAY5cbFt6KI2z9i3Ex0Nqx2ce6bftlGwOHZPA00YcTVHeq96fakg0jG52U6MfZ04/EAFwAEfHyGUx9OJhxenvR7s+uEHF4DROnBxZjoqi32xYthWene5tX/N7+nPLb9GexODZ2js004keGf5WI1eUzWH28KuOm7NnraoVxXi5rU7WdmpaPCZ8mPss5Rqcz2fl/V5FZi3bZveR6r1v6UYjiznT0t2rE/GsqkTa/L6/LW+Hf7HGrdat11bzajHNSa1jZes/16OA+5u6rvVe2vnR0e1CuOb/2Q==");
+  background-size: 187rpx 170rpx;
+}
+.contant{
+  padding: 20rpx 15rpx;
+}
+.tab-contant{
+  display: none;
+  font-size: 24rpx;
+}
+.contant .active{
+  display: block;
+}
+/* 卡券页面 */
+.cards-box{
+  background: #fff;
+  padding: 16rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.cards-box .cards-manage view{
+  width: 380rpx;
+}
+.cards-box .cards-manage navigator{
+  width: 84rpx;
+  height: 40rpx;
+  background: #f37f29;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+.cards-box .icon{
+  width: 48rpx;
+  height: 32rpx;
+}
+.cards-box .up-down{
+  width: 40rpx;
+  height: 40rpx;
+}
+.cards-box .cards-list{
+  width: 690rpx;
+  height: 240rpx;
+  position: relative;
+  margin-top: 12rpx;
+}
+.cards-box .cards-list image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 690rpx;
+  height: 180rpx;
+  z-index: 0;
+}
+.cards-box .cards-list .cards-name{
+  position: absolute;
+  top: 60rpx;
+  left: 260rpx;
+  font-size: 40rpx;
+  color: #fff;
+  z-index: 10;
+}
+.cards-box .cards-list .cards-info{
+  position: absolute;
+  bottom: 16rpx;
+  left: 20rpx;
+  width: 650rpx;
+  color: #666;
+  z-index: 10;
+}
+
+/* 权益页面 */
+.power{
+  background: #fff;
+}
+.power .active{
+  height: auto;
+}
+.power-list{
+  overflow: hidden;
+  border-bottom: 1rpx solid #ddd;
+  height: 88rpx;
+}
+.power-list .name{
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 34rpx;
+  color: #777;
+  text-align: center;
+}
+.power-list .detail{
+  border-top: 8rpx solid #199013;
+  font-size: 24rpx;
+  padding: 20rpx 0 40rpx 40rpx;
+  color: #777;
+  line-height: 44rpx;
+}
+.power-list .detail .tit{
+  color: #333;
+  font-size: 30rpx;
+}
+/* 活动页面 */
+.activity-list{
+  height: 340rpx;
+}
+.activity-list .left,.activity-list .right {
+  float: left;
+  height: 300rpx;
+  padding-top: 40rpx;
+}
+.activity-list::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.activity-list .left{
+  width: 160rpx;
+  text-align: right;
+  padding-right: 20rpx;
+  position: relative;
+  overflow: visible;
+}
+.activity-list .left text{
+  position: absolute;
+  top: 42rpx;
+  right: -16rpx; 
+  display: inline-block; 
+  z-index: 999;
+  width: 28rpx;
+  height: 28rpx;
+  border: 1rpx solid #999;
+  background: #eee;
+  border-radius: 50%;
+}
+.activity-list .right{
+   border-left: 1rpx solid #999; 
+  padding-left: 32rpx;
+}
+.activity-list .right view{
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.activity-list .right text{
+  display: block;
+  margin-top: 32rpx;
+  border-top: 1rpx solid #999;
+}
+.activity-list image{
+  width: 500rpx;
+  height: 200rpx;
+}
+
+/* 联系人 */
+.contact{
+  background: #fff;
+  border-radius: 10rpx;
+}
+.contactTit{
+  padding: 20rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #aaa;
+}
+.contactTit navigator{
+  font-size: 50rpx;
+  color: #2b9a26;
+  border: 1rpx solid #2b9a26;
+  border-radius: 50%;
+  height: 40rpx;
+  width: 40rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.contact-list:last-child{
+  border-bottom: none;
+}
+.contact-list{
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+.contact-list .del{
+  height: 56rpx;
+  width: 56rpx;
+  line-height: 52rpx;
+  text-align: center;
+  font-size: 48rpx;
+  margin-right: 40rpx;
+  color: #f00;
+  border: 1rpx solid #f00;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+}

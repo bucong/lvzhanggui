@@ -1,0 +1,57 @@
+/* pages/cardDetail/cardDetail.wxss */
+page{
+  background: #eee;
+}
+.show-img{
+  width: 750rpx;
+  height: 196rpx;
+  position: relative;
+}
+.show-img image{
+  width: 750rpx;
+  height: 196rpx;
+}
+.show-img view{
+  position: absolute;
+  top: 66rpx;
+  left: 280rpx;
+  color: #fff;
+  font-size: 40rpx;
+}
+.detail-box{
+  margin: 20rpx;
+}
+.detail-box{
+  padding: 24rpx 18rpx;
+}
+.detail-box .name{
+  font-size: 32rpx;
+  font-weight: 900;
+}
+.description,.originalPrice{
+  font-size: 20rpx;
+  color: #777;
+}
+.detail-box .price{
+  font-size: 30rpx;
+  color: #ee2424;
+  margin-top: 10rpx;
+}
+.originalPrice text{
+  text-decoration: line-through;
+}
+.detail-box .tit{
+  font-size: 30rpx;
+  margin-top: 60rpx;
+  font-weight: 900;
+}
+.coupon,.explain{
+  font-size: 28rpx;
+  color: #666;
+}
+.sub{
+  margin: 60rpx;
+  background: #f03939;
+  color: #fff;
+  font-size: 30rpx;
+}

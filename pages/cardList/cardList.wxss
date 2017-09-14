@@ -1,0 +1,36 @@
+/* pages/cardList/cardList.wxss */
+page{
+  background: #efeff4;
+  padding: 30rpx 0 30rpx 30rpx;
+}
+.card-list{
+  background: #fff;
+  width: 330rpx;
+  margin-bottom: 36rpx;
+  margin-right: 30rpx;
+  box-shadow: 0 15rpx 30rpx rgba(0,0,0,.1);
+  display: inline-block;
+}
+.card-list image{
+  width: 330rpx;
+  height: 308rpx;
+}
+.detail-box{
+  padding: 24rpx 18rpx;
+}
+.card-list .name{
+  font-size: 30rpx;
+  font-weight: 900;
+}
+.description,.originalPrice{
+  font-size: 20rpx;
+  color: #777;
+}
+.card-list .preference{
+  font-size: 30rpx;
+  color: #ee2424;
+  margin-top: 10rpx;
+}
+.originalPrice text{
+  text-decoration: line-through;
+}

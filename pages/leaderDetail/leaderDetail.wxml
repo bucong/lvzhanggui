@@ -1,0 +1,15 @@
+<!--pages/leaderDetail/leaderDetail.wxml-->
+<view class='flex box'>
+  <image src='{{ip}}{{headImg}}' class='head-img'></image>
+  <view class='right'>  
+    <view>昵称：<text>{{nickName}}</text></view>
+    <view style="display: {{isShow?'block':'none'}}">
+      <view>姓名：<text>{{name}}</text></view>
+      <view>电话：<text>{{mobile}}</text><image src='../images/call.png' class='callBtn' bindtap='call'></image></view>
+    </view>
+  </view>
+</view>
+<view class='introduce'>
+  <view>领队简介：</view>
+  <view>{{introduce}}</view>
+</view> 

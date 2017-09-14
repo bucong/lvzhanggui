@@ -1,0 +1,37 @@
+<!--pages/bindPhone/bindPhone.wxml-->
+<view class='bind-tit'>短信验证码登录</view>
+<view class='bind-info'>如手机号未注册，验证后将自动注册</view>
+<view class="form">
+  <view class="flex">
+    <text>手机号</text>
+    <input type="number" bindinput="phoneCheck" style="width: 450rpx;" placeholder='请输入手机号' />
+  </view>
+  <view class="flex">
+    <text>验证码</text>
+    <input type="number" bindinput="checkNum" class='check' placeholder='短信验证码' />
+    <view class="send-check" style="background: {{bg}}" bindtap="sendCheck">{{status}}</view>
+  </view>
+</view>
+<button class="sub" bindtap="bindPhone">登录</button>
+<view class="nav flex">
+  <navigator url="../index/index" class="active" redirect>
+    <image src="../images/nav1.png"></image>
+    <image src="../images/nav2.png"></image>
+    <text>首页</text>
+  </navigator>
+  <navigator url="../classify/classify" redirect>
+    <image src="../images/nav3.png"></image>
+    <image src="../images/nav4.png"></image>
+    <text>分类</text>
+  </navigator>
+  <!-- <navigator url="../order/order" redirect>
+    <image src="../images/nav5.png"></image>
+    <image src="../images/nav6.png"></image>
+    <text>订单</text>
+  </navigator> -->
+  <navigator url="../people/people" redirect>
+    <image src="../images/nav7.png"></image>
+    <image src="../images/nav8.png"></image>
+    <text>我的</text>
+  </navigator>
+</view>

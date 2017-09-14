@@ -1,0 +1,91 @@
+/**app.wxss**/
+@import "/wxParse/wxParse.wxss";
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+} 
+.fr{
+  float: right;
+}
+.fl{
+  float: left;
+}
+.title{
+  border-left: 8rpx solid #2aba6e;
+  font-size: 28rpx;
+  text-indent: 20rpx;
+  color: #303133;
+  margin-top: 40rpx;
+}
+.spacing{
+  height: 20rpx;
+  border-top: 1rpx solid #d9d9d9;
+  border-bottom: 1rpx solid #d9d9d9;
+  background: #efeff4;
+}
+.bottom-spacing{
+  height: 96rpx;
+}
+.big-spacing{
+  height: 56rpx;
+  border-top: 1rpx solid #d9d9d9;
+  border-bottom: 1rpx solid #d9d9d9;
+  background: #efeff4;
+}
+.nav{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 92rpx;
+  padding-top: 6rpx;
+  border-top: 1rpx solid #e5e5e5;
+  text-align: center; 
+  justify-content: space-around;
+  background: #f6f8f8;
+  z-index: 999;
+}
+.nav navigator{
+  width: 180rpx;
+  text-align: center;
+}
+.nav image{
+  display: block;
+  margin: 0 auto 6rpx auto;
+  width: 53rpx;
+  height: 46rpx;
+}
+.nav text{
+  display: block;
+  font-size: 22rpx;
+  color: #919399;
+}
+.nav image:nth-child(2){
+  display: none;
+  margin: 0 auto 6rpx auto;
+}
+.nav .active text{
+  color: #55c88b;
+}
+.nav .active image:first-child{
+  display: none;
+  margin: 0 auto 6rpx auto;
+}
+.nav .active image:nth-child(2){
+  display: block;
+  margin: 0 auto 6rpx auto;
+}
+.meng{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 99;
+  display: none;
+}
+.rich-text image{
+  width: 100% !important;
+}

@@ -1,0 +1,23 @@
+/* pages/travelDetail/travelDetail.wxss */
+.note-title{
+  text-align: center;
+  font-size: 40rpx;
+  margin-top: 48rpx;
+}
+.note-info{
+  margin-top: 36rpx;
+  color: #969696;
+  font-size: 28rpx;
+  justify-content: center;
+}
+.note-info image{
+  width: 36rpx;
+  height: 26rpx;
+}
+.note-info text{
+  margin-right: 30rpx;
+}
+.content{
+  margin: 32rpx 16rpx;
+  font-size: 28rpx;
+}

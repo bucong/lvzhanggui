@@ -1,0 +1,13 @@
+<!--pages/travelDetail/travelDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="note-title">{{title}}</view>
+<view class='note-info flex'>
+  <image src='../images/note2.png'></image>
+  <text>{{author}}</text>
+  <text>{{takeNoteTime}}</text>
+  <image src='../images/note1.png'></image>
+  <text>{{viewCount}}</text>
+</view>
+<view class='content'>
+  <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>

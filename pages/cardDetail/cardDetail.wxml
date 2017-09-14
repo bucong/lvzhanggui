@@ -1,0 +1,21 @@
+<!--pages/cardDetail/cardDetail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>  
+<view class='show-img'>
+  <image src='{{ip}}{{img}}'></image> 
+  <view>{{name}}</view>
+</view>
+<view class='detail-box'>
+  <view class='name'>{{name}}</view>
+  <view class='description'>{{description}}</view>
+  <view class='price'>￥{{price}}</view>
+  <view class='originalPrice'>价格： <text>￥{{originalPrice}}</text></view>
+  <view class='tit'>卡片待遇</view>
+  <view class='coupon rich-text'>
+    <template is="wxParse" data="{{wxParseData:couponDetail.nodes}}"/>
+  </view>
+  <view class='tit'>卡劵说明</view>
+  <view class='explain rich-text'>
+    <template is="wxParse" data="{{wxParseData:cardExplain.nodes}}"/>
+  </view>
+  <button class='sub' bindtap='buy'>购买</button>
+</view>

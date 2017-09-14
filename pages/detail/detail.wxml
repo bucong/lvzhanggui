@@ -1,0 +1,165 @@
+<!--pages/detail/detail.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+<swiper indicator-dots="true"
+  autoplay="auto" duration="500" class="carousel-box">
+  <block wx:for="{{carousel}}" wx:key="key">
+    <swiper-item>
+      <image src="{{ip}}{{item}}" class="carousel-img"></image>
+    </swiper-item>
+  </block>
+  <text>火热报名中</text>
+</swiper>
+<view class="tab flex">
+  <view data-tab="intro" class="{{tab=='intro' ? 'active':''}}" bindtap="tab">活动简介</view>
+  <view data-tab="date" class="{{tab=='date' ? 'active':''}}" bindtap="tab">日程安排</view>
+  <view data-tab="fee" class="{{tab=='fee' ? 'active':''}}" bindtap="tab">费用说明</view>
+  <view data-tab="attention" class="{{tab=='attention' ? 'active':''}}" bindtap="tab">注意事项</view>
+</view>
+<view class="intro" style="display: {{tab=='intro' ? 'block':'none'}};">
+  <view class="act-name">{{actName}}</view>
+  <view class="price">
+    <image src="../images/detail_03.png"></image>
+    <view class="num">{{birdPrice}}{{price}}</view>
+    <view class="minus" hidden="{{discount}}">减</view>
+    <view class="first" hidden="{{discount}}">首</view>
+    <view class="discount" hidden="{{discount}}">折</view>
+  </view>
+  <view class="spacing"></view>
+  <navigator url="../map/map?id={{id}}" class="flex location">
+    <image src="../images/detail_06.png"></image>
+    <view>{{location}}</view>
+    <image src="../images/detail_07.png"></image>
+  </navigator>
+  <view class="spacing"></view>
+  <view class="time">
+    <view class="tit">
+      <image src="../images/detail_08.png"></image>
+      <text>出发时间</text>
+    </view>
+    <view class="times">
+      <text wx:for="{{batchList}}" wx:key="key" data-timeId="{{item.id}}" class="{{timeId==item.id?'active':''}}" bindtap="times">{{item.startTime}}</text>
+    </view>
+  </view>
+  <view class="spacing"></view>
+  <view class="join">
+    <view class="tit flex">
+      <image src="../images/detail_10.png"></image>
+      <text>参加人数</text>
+      <!-- (<view class="alreadynum">{{applyLimit}}</view>) -->
+      <view class="total">
+        共<text>{{peopleNum}}</text>/{{applyLimit}}人
+      </view>
+    </view>
+    <view class="people-box">
+      <view class="people" style="width: {{peopleWidth}}rpx;">
+        <view wx:for="{{people}}" wx:key="key">
+          <image src="../images/people{{item.due}}.jpg"></image>
+          <text>{{item.parName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="big-spacing"></view>
+  <view class='act-detail rich-text'>
+    <template is="wxParse" data="{{wxParseData:actDetail.nodes}}"/>
+  </view>
+</view>
+<view class="date same rich-text" style="display: {{tab=='date' ? 'block':'none'}};">
+  <!-- 日程安排 -->
+  <view wx:for="{{date}}" wx:key="key">
+    <text>【{{item.name}}】</text>
+    <view>名称：{{item.name}}</view>
+    <view>膳食：{{item.dining}}</view>
+    <view>住宿：{{item.acd}}</view>
+    <view>{{item.detail}}</view>
+      <!-- <view><template is="wxParse" data="{{wxParseData:item.days.nodes}}"/></view>   -->
+  </view>
+</view>
+<view class="fee same rich-text" style="display: {{tab=='fee' ? 'block':'none'}};">
+  <template is="wxParse" data="{{wxParseData:feeDetail.nodes}}"/>
+</view>
+<view class="attention same rich-text" style="display: {{tab=='attention' ? 'block':'none'}};">
+  <template is="wxParse" data="{{wxParseData:travelTips.nodes}}"/>
+</view>
+
+<view class="consult" style="bottom: {{alreadyHeight}}rpx" bindtap="consult">
+  <image src="../images/detail_13.png"></image>
+</view>
+<view class="follow flex" style="display:{{alreadyAttention}}">
+  <image src="../images/detail_20.png" class="close" bindtap="closeAttention"></image>
+  <image src="../images/detail_17.png" class="logo"></image>
+  <view class="describe">
+    关注徒扬俱乐部，
+    查看更多精彩活动！
+  </view>
+  <view class="payattention" bindtap="showPay">关注</view>
+</view>
+<view style="height: 200rpx;"></view>
+<view class="detail-nav flex">
+  <navigator url="../index/index" class="border-top" open-type="reLaunch">
+    <image src="../images/nav1.png"></image>
+    <text>首页</text>
+  </navigator>
+  <view bindtap="showGroup" class="border-top border-left">
+    <image src="../images/detail_27.png"></image>
+    <text>领队</text>
+  </view>
+  <view class="sign" bindtap='sign'>立即报名</view>
+</view>
+<view class="meng" style="display: {{showpay}}" bindtap="closePay"></view>
+<view class="qr-code" style="display: {{showpay}}">
+  <!-- <view class="tit">关注我们</view> -->
+   <image src="{{ip}}{{wxImg}}"></image> 
+  <!-- <text>长按识别二维码</text>
+  <text>关注徒扬俱乐部</text>
+  <view class="info">点击窗口外任意处，关闭本窗口</view> -->
+</view>
+<!-- 领队信息 -->
+<view class="group" style="display: {{showGroup}}">
+  <swiper autoplay="" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">  
+    <block  wx:key="unique" wx:for="{{group}}" wx:key="key">  
+      <swiper-item>  
+      <view class='group-meng' style="display: {{showGroup}}" bindtap='closeGroup'></view>
+        <view class="group-box">
+          <view class="bg">
+            <view class="name">{{item.nickname}}领队的信息</view>
+            <view class="info">
+              <image src="../images/group_03.png"></image>
+              <text>电话：{{item.mobile}}</text>
+            </view>
+            <view class="info">
+              <image src="../images/group_06.png"></image>
+              <text>带队次数：{{item.times}}次</text>
+            </view>
+            <view class="info">
+              <image src="../images/group_08.png"></image>
+              <text>评分：</text><image src="../images/score{{item.score}}.png" class="score"></image>
+            </view>
+             <image src="{{ip}}{{item.headImg}}" class="head"></image>  
+          </view>
+          <view class="name-main">
+            {{item.nickname}}
+            <image src="../images/{{item.sex}}.png" class="sex"></image>
+          </view>
+          <view class="decribe">{{item.introduce}}</view>
+          <view class="meng-text"></view>
+          <image src="../images/group_18.png" style='display: {{seal}}' class="seal" bindtap='closeSeal'></image>
+        </view>
+      </swiper-item> 
+    </block>  
+  </swiper>  
+</view>
+<view class="meng" style="display:{{consult}}" bindtap="closeConsult"></view>
+<view class="consult-box" style="display:{{consult}}">
+  <view class="tit">咨询报名</view>
+  <view class="flex">
+    <view class="contact">
+      <image src="{{ip}}{{kfImg}}"></image>
+      <view>客服微信</view>
+    </view>
+    <view class="contact">
+      <image src="../images/phone.png" bindtap="call"></image>
+      <view>客服电话</view>
+    </view>
+  </view>
+</view>

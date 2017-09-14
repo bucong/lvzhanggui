@@ -1,0 +1,141 @@
+<!--pages/people/people.wxml-->
+<view class="people">
+  <view class="flex info">
+    <view>
+      <image src="{{headImg}}" class="info-head"></image>
+      <view class="name">
+        {{name}} <image src="../images/white{{sex}}.png" class="sex"></image>
+      </view>
+    </view>
+    <view class="operation">
+      <navigator url="../peopleEdit/peopleEdit">
+        <image src="../images/people_03.png" class="opertion-icon"></image>
+      </navigator>
+      <!-- <navigator url="">
+        <image src="../images/people_06.png" class="opertion-icon"></image>
+      </navigator> -->
+    </view>
+  </view>
+  <view class="flex own">
+    <view>
+      {{integral}}
+      <text>积分</text>
+    </view>
+    <navigator url='../myCoin/myCoin' style="width: 230rpx;">
+      {{coin}}
+      <text>金币</text>
+    </navigator>
+    <view class="authority">
+      {{authority}}
+    </view>
+  </view>
+</view>
+<!-- tab -->
+<view class='flex people-tab'>
+  <view data-tab='cards' class="{{tab=='cards'?'active':''}}" bindtap='tabClick'>
+    <image src='../images/people_09.png'></image>
+    <text>卡券</text>
+  </view>
+  <view data-tab='power' class="{{tab=='power'?'active':''}}" bindtap='tabClick'>
+    <image src='../images/people_11.png'></image>
+    <text>权益</text>
+  </view>
+  <view data-tab='activity' class="{{tab=='activity'?'active':''}}" bindtap='tabClick'>
+    <image src='../images/people_13.png'></image>
+    <text>活动</text>
+  </view>
+  <view data-tab='contact' class="{{tab=='contact'?'active':''}}" bindtap='tabClick'>
+    <image src='../images/people_15.png'></image>
+    <text>联系人</text>
+  </view>
+</view>
+<!-- tab内容 -->
+<view class='contant'>
+  <!-- 卡劵信息 -->
+  <view class="tab-contant cards {{tab=='cards'?'active':''}}">
+    <view class='cards-box' style="height: {{cardHeight}}rpx;">
+      <view class='flex cards-manage' style='padding: {{cardPadding}}rpx 20rpx;'>
+        <image src='../images/people_22.png' class='icon'></image>
+        <view>优惠卡 （{{cardsNum}}）</view>
+        <navigator url="../cardList/cardList">购买</navigator>
+        <image src='../images/{{updown}}.jpg' class='up-down' bindtap='spread'></image>
+      </view>
+      <view wx:for="{{cardsList}}" class='cards-list' wx:key="key">
+        <image src='{{ip}}{{item.detailImg}}'></image> 
+        <view class='cards-name'>{{item.name}}</view>
+        <view class='flex cards-info'>
+          <text>到期时间：{{item.actTimes}}</text>
+          <text>剩余次数：{{item.validTime}}</text>
+        </view>
+      </view>
+    </view> 
+  </view>
+  <!--权益页面  -->
+  <view class="tab-contant power {{tab=='power'?'active':''}}">
+    <view class="power-list {{powerId==item.id?'active':''}}" wx:for="{{cardsList}}" wx:key="key">
+      <view class='name' data-id='{{item.id}}' bindtap='powerOpen'>{{item.name}}</view>
+      <view class='detail'>
+        <view class='tit'>卡片待遇</view>
+        <view>{{item.couponDetail}}</view>
+        <view class='tit'>卡劵说明</view>
+        <view>{{item.cardExplain}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 活动信息 -->
+  <view class="tab-contant activity {{tab=='activity'?'active':''}}">
+    <navigator url="../myActivity/myActivity?actId={{item.id}}" class='activity-list' wx:for="{{activityList}}" wx:key="key">
+      <view class='left'>
+        <view>{{item.startTime}}- <text></text></view>
+        <view>{{item.endTime}}</view>
+      </view>
+      <view class='right'>
+        <view>{{item.actName}}</view>
+        <image src="{{ip}}{{item.actImg}}"></image>
+        <text></text>
+      </view>
+    </navigator>
+  </view>
+  <!-- 联系人页面 -->
+  <view class="tab-contant contact {{tab=='contact'?'active':''}}">
+    <view class="contactTit flex">
+      <text>常用联系人</text>
+      <navigator url="../addPeople/addPeople" redirect>+</navigator>
+    </view>
+    <view class="contact-list flex" wx:for="{{contactList}}" wx:key="key">
+      <view class="info">
+        <view>
+          姓名：<text>{{item.name}}{{item.tag?'('+item.tag+')':''}}</text>
+        </view>
+        <view>性别：<text>{{item.sex}}</text></view>
+        <view>电话：<text>{{item.mobile}}</text></view>
+        <view>证件号：<text>{{item.idNum}}</text></view>
+      </view>
+      <view class='del' data-id='{{item.id}}' bindtap='delContact' style="display:{{item.tag?'none':'block'}}">+</view>
+    </view>
+  </view>
+</view>
+<!-- 底部导航 -->
+<view class="bottom-spacing"></view>
+<view class="nav flex">
+  <navigator url="../index/index" redirect>
+    <image src="../images/nav1.png"></image>
+    <image src="../images/nav2.png"></image>
+    <text>首页</text>
+  </navigator>
+  <navigator url="../classify/classify" redirect>
+    <image src="../images/nav3.png"></image>
+    <image src="../images/nav4.png"></image>
+    <text>分类</text>
+  </navigator>
+  <!-- <navigator url="../order/order" redirect>
+    <image src="../images/nav5.png"></image>
+    <image src="../images/nav6.png"></image>
+    <text>订单</text>
+  </navigator> -->
+  <navigator url="../people/people" class="active" redirect>
+    <image src="../images/nav7.png"></image>
+    <image src="../images/nav8.png"></image>
+    <text>我的</text>
+  </navigator>
+</view>

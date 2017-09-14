@@ -1,0 +1,92 @@
+<!--pages/myActivity/myActivity.wxml-->
+<swiper indicator-dots="" autoplay="auto" duration="500" class="carousel-box">
+  <block wx:for="{{carousel}}" wx:key="key">
+    <swiper-item>
+      <image src="{{ip}}{{item}}" class="carousel-img"></image>
+    </swiper-item>
+  </block>
+  <view class='flex act-tit'>
+    <view>{{actName}}</view>
+    <view class='price'>￥{{price}}</view>
+  </view>
+</swiper>
+<view class='act-info'>
+  <view class='list'>
+    <image src='../images/mytime.png'></image>
+    <view class='box'>活动时间：<text>{{startTime}} - {{endTime}}</text></view>
+  </view>
+  <view class='list'>
+    <image src='../images/mylocation.png'></image>
+    <view class='box'><text class='location'>集合地点： </text>
+      <view class='gather'>
+        <view wx:for="{{gatherPlace}}" wx:key="key">{{item.time}} {{item.spot}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='spacing'></view>
+<view class='leader'>
+  <view class='leader-icon'>
+    <image src='../images/leader.png'></image>
+    <text>领队</text>
+  </view> 
+  <navigator url='../leaderDetail/leaderDetail?id={{item.id}}' class='leader-list' wx:for="{{leaderList}}" wx:key="key">
+    <image src='{{ip}}{{item.headImg}}'></image>
+    <text>{{item.nickname}}</text>
+  </navigator>  
+</view>
+<view class='spacing'></view>
+<view class='sign-people'>
+  <view class='tit'>报名人员
+    <view bindtap='addPeople' class='fr'>+</view>
+  </view>
+  <view class='sign-box' wx:for="{{actApplyList}}" wx:key="key">
+    <view class="sign-list flex {{item.id==operationId?'active':''}}" style='width:{{item.memberGrade}}rpx;right: -{{item.remarks}}rpx;'>
+      <view class='showDetail flex' data-id='{{item.id}}' bindtouchstart="mytouchstart" bindtouchmove="mytouchmove">
+        <view class='info'>
+          <view>
+            <text>姓名：</text>
+            {{item.parName}}
+          </view>
+          <view>
+            <text>电话：</text>
+            {{item.parMobile}}
+          </view>
+          <view>
+            <text>证件号：</text>
+            {{item.parNum}}
+          </view>
+        </view>
+        <view class='status'>
+          <text>{{item.status}}</text>
+          {{item.clubRemarks}}
+        </view>
+        <image src='../images/left.png'></image>
+      </view>
+      <view class='operation' data-actpartid='{{item.id}}' bindtap='{{item.isMember}}'>
+        {{item.usePoint}}
+      </view>
+      <view class='operation operation2' data-actpartid='{{item.id}}' bindtap='showOperation'>
+        取消报名
+      </view>
+    </view>
+  </view>
+</view>
+<view class='spacing'></view>
+<view class='order-detail'>
+  <view class='tit'>订单详情</view>
+  <view wx:for="{{actApplyList}}" class='order-list' wx:key="key">
+    <view class='name'>{{item.parName}}</view>
+    <view class='flex'><text>单价</text><text>￥{{item.due}}</text></view>
+    <view class='flex'><text>人数</text><text>1</text></view>
+    <view class='flex'><text>支付金额</text><text class='red'>￥{{item.paid}}</text></view>
+  </view>
+  <view class='total'>
+    总计： <text class='red'>￥{{allPayMoney}}</text>
+  </view>
+</view>
+<view class='meng' style='display:{{operationShow}}'></view>
+<view class='operation-box' style='display:{{operationShow}}'>
+  <button bindtap='sureOperation'>{{operation}}</button>
+  <button bindtap='cancel'>取消</button>
+</view>

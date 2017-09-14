@@ -1,0 +1,57 @@
+/* pages/peopleEdit/peopleEdit.wxss */
+page{
+  background: #eee;
+}
+.info .list{
+  padding: 20rpx;
+  height: 50rpx;
+  font-size: 28rpx;
+  color: #777;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+.info .list text{
+  color: #333;
+}
+.info .list image{
+  width: 50rpx;
+  height: 56rpx;
+}
+.meng-box{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: none;
+  width: 600rpx;
+  height: 340rpx;
+  background: #fff;
+  border: 1rpx solid #fff;
+  border-radius: 10rpx;
+  z-index: 200;
+}
+.meng-box textarea{
+  margin: 40rpx;
+  width: 500rpx;
+  padding: 10rpx;
+  height: 152rpx;
+  background: #ddd;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #b3b3b3;
+}
+.meng-box .flex{
+  border-top: 1rpx solid #eee;
+  font-size: 30rpx;
+  color: #eee;
+}
+.meng-box text{
+  padding: 20rpx 0;
+}
+.meng-box .btn{
+  display: block;
+  width: 280rpx;
+  text-align: center;
+}

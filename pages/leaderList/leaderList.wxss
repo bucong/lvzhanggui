@@ -1,0 +1,22 @@
+/* pages/leaderList/leaderList.wxss */
+.box{
+  padding: 0 15rpx;
+}
+.leader-list{
+  padding: 20rpx 0;
+  display: inline-block;
+  width: 180rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #ddd;
+}
+.leader-list image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+.leader-list view{
+  font-size: 24rpx;
+  color: #333;
+  height: 32rpx;
+  overflow: hidden;
+}

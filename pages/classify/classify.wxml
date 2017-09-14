@@ -1,0 +1,55 @@
+<!--pages/classify/classify.wxml-->
+<view class="title">类型</view>
+<view class="classify type">
+  <navigator url="../actList/actList?types={{item.activityType}}" wx:for="{{types}}" wx:key="key">
+    <image src="{{ip}}{{item.img}}"></image>
+    <text>{{item.typeName}}</text>
+  </navigator>
+</view>
+<view class="spacing"></view>
+<view class="title">行程</view>
+<view class="classify route flex">
+  <navigator url="../actList/actList?days={{item.id}}" wx:for="{{route}}" wx:key="key">
+    <image src="{{item.img}}"></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<view class="spacing"></view>
+<view class="title">难易度</view>
+<view class="classify difficult flex">
+  <navigator url="../actList/actList?difficulty={{item.id}}" wx:for="{{difficult}}" wx:key="key">
+    <image src="{{item.img}}"></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<view class="spacing"></view>
+<view class="title">目的地</view>
+<view class="address">
+  <navigator url="../actList/actList?province={{item.name}}" wx:for="{{address}}" wx:key="key">
+    <image src="{{ip}}{{item.img}}"></image>
+    <text>{{item.name}}</text>
+  </navigator>
+</view>
+<view class="bottom-spacing"></view>
+<view class="nav flex">
+  <navigator url="../index/index" redirect>
+    <image src="../images/nav1.png"></image>
+    <image src="../images/nav2.png"></image>
+    <text>首页</text>
+  </navigator>
+  <navigator url="../classify/classify" class="active" redirect>
+    <image src="../images/nav3.png"></image>
+    <image src="../images/nav4.png"></image>
+    <text>分类</text>
+  </navigator>
+  <!-- <navigator url="../order/order" redirect>
+    <image src="../images/nav5.png"></image>
+    <image src="../images/nav6.png"></image>
+    <text>订单</text>
+  </navigator> -->
+  <navigator url="../people/people" redirect>
+    <image src="../images/nav7.png"></image>
+    <image src="../images/nav8.png"></image>
+    <text>我的</text>
+  </navigator>
+</view>

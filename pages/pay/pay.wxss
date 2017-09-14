@@ -1,0 +1,47 @@
+/* pages/pay/pay.wxss */
+page{
+  background: #efeff4;
+}
+.total-fee{
+  line-height: 100rpx;
+  padding-left: 30rpx;
+  font-size: 32rpx;
+}
+.actual-fee{
+  font-size: 32rpx;
+  background: #fff;
+  padding: 0 30rpx;
+  line-height: 80rpx;
+}
+.pay-style{
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  font-size: 32rpx;
+  color: #99a4bf;
+}
+.pay-list{
+  background: #fff;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+}
+.pay-list view{
+  border-top: 1rpx solid #d9d9d9;
+  padding-right: 20rpx;
+}
+.pay-list view:first-child{
+  border-top: none;
+}
+.pay-list view text{
+  width: 500rpx;
+}
+.pay-list image{
+  width: 54rpx;
+  height: 54rpx;
+}
+.pay{
+  width: 660rpx;
+  margin-top: 76rpx;
+  background: #3fc17c;
+  font-size: 40rpx;
+  color: #fff;
+}

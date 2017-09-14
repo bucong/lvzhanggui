@@ -1,0 +1,26 @@
+<!--pages/travels/travels.wxml-->
+<view class='note-bg'></view>
+<view class='tab-box'>
+  <view class='tab' style='left: -{{tabLeft}}rpx;'>
+    <view wx:for="{{travelType}}" wx:key="key" class="{{swiperCurrent==index?'active':''}}" data-ind="{{index}}" bindtap='tabChange'>{{item.typeName}}</view>
+  </view>
+</view>
+<swiper indicator-dots=""
+  autoplay="" duration="500" class="carousel-box" current="{{swiperCurrent}}" bindchange="swiperChange">
+  <block wx:for="{{travelList}}" wx:key="key">
+    <swiper-item>
+      <view class='travel-box'>
+        <navigator url='../travelDetail/travelDetail?id={{item.id}}' wx:for="{{item}}" wx:key="key">
+          <view class='tit'>{{item.title}}</view>
+          <view class='flex'>
+            <image src='../images/note1.png'></image>
+            <text>{{item.viewCount}}</text>
+            <image src='../images/note2.png'></image>
+            <text>{{item.author}}</text>
+            <text>{{item.takeNoteTime}}</text>
+          </view>
+        </navigator>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

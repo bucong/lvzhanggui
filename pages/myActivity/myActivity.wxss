@@ -1,0 +1,221 @@
+/* pages/myActivity/myActivity.wxss */
+page{
+  background: #efeff4;
+}
+.carousel-box{
+  height: 300rpx;
+  position: relative;
+  background: #fff;
+}
+.carousel-box image{
+  width: 100%;
+  height: 300rpx;
+}
+.act-tit{
+  width: 710rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  position: absolute;
+  bottom: 0;
+  background: rgba(255,255,255,.5);
+  padding: 0 20rpx;
+}
+.act-tit .price{
+  color: #f00;
+}
+.act-info{
+  padding-left: 20rpx;
+  font-size: 28rpx;
+  background: #fff;
+}
+.act-info .list{
+  line-height: 64rpx;
+}
+.act-info .list .box{
+  border-top: 1rpx solid #999;
+  width: 680rpx;
+  float: right;
+}
+.act-info .list .gather{
+  display: inline-block;
+}
+.act-info .list .location{
+  float: left;
+}
+.act-info .list .gather view{
+  display: block;
+}
+.act-info .list:first-child .box{
+  border-top: none;
+}
+.act-info image{
+  width: 40rpx;
+  height: 52rpx;
+  float: left;
+  margin-top: 10rpx;
+}
+.act-info::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.leader{
+  padding: 20rpx;
+  color: #199013;
+  background: #fff;
+}
+.leader::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.leader-icon{
+  float: left;
+  width: 80rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.leader-icon image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.leader-icon text{
+  display: block;
+}
+.leader-list{
+  float: left;
+  margin: 0 20rpx;
+  text-align: center;
+}
+.leader-list image{
+  width: 84rpx;
+  height: 84rpx;
+  border: 1rpx solid #199013;
+  border-radius: 50%;
+}
+.leader-list text{
+  display: block;
+  font-size: 24rpx;
+}
+.sign-people{
+  background: #fff;
+}
+.sign-people .tit{
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+.sign-people .tit view{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid #199013;
+  color: #199013;
+  border-radius: 50%;
+  line-height: 32rpx;
+  text-align: center;
+  font-size: 50rpx;
+}
+.order-detail{
+  background: #fff;
+}
+.order-detail .tit{
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #000;
+  border-bottom: 1rpx solid #aaa;
+}
+.sign-box{
+  width: 750rpx;
+  overflow: hidden;
+  height: 180rpx;
+  position: relative;
+}
+.sign-list{
+  position: absolute; 
+  height: 180rpx;
+  transition: .6s;
+  right: -180rpx;
+  border-top: 1rpx solid #aaa;
+  overflow: hidden;
+}
+.sign-box .active{
+  right: 0 !important;
+}
+.sign-people .sign-list .showDetail{
+  padding: 40rpx;
+  font-size: 24rpx;
+  width: 670rpx;
+  color: #999;
+  height: 100rpx;
+  align-items: flex-start;
+}
+.sign-list .showDetail .info{
+  width: 480rpx;
+}
+.sign-list .showDetail .info text{
+  color: #000;
+  display: inline-block;
+  width: 96rpx;
+}
+.sign-list .showDetail .status{
+  text-align: right;
+}
+.sign-list .showDetail .status text{
+  color: #199013;
+  display: block;
+  font-size: 28rpx;
+}
+.sign-list .showDetail image{
+  width: 30rpx;
+  height: 42rpx;
+}
+.sign-list .operation{
+  width: 180rpx;
+  height: 180rpx;
+  text-align: center;
+  line-height: 180rpx;
+  background: #c7c7cc;
+  color: #fff;
+  font-size: 32rpx;
+}
+.sign-list .operation2{
+  background: #c8ee7e;
+}
+.red{
+  color: #ee2424;
+}
+.order-detail{
+  color: #777;
+  font-size: 26rpx;
+  line-height: 60rpx;
+}
+.order-list{
+  padding: 10rpx 20rpx 10rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.order-list .name{
+  text-align: right;
+  font-size: 28rpx;
+}
+.total{
+  text-align: right;
+  font-size: 28rpx;
+  padding: 10rpx 20rpx;
+}
+.operation-box{
+  position: fixed;
+  bottom: 0;
+  width: 700rpx;
+  padding: 0 25rpx;
+  z-index: 1000;
+}
+.operation-box button{
+  margin-bottom: 20rpx;
+  color: #fff;
+  font-size: 30rpx;
+}
+.operation-box button:first-child{
+  background: #f03939;
+}
+.operation-box button:last-child{
+  background: #1b8717;
+}

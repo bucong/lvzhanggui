@@ -1,0 +1,58 @@
+<!--pages/signInfo/signInfo.wxml-->
+<view class="act-name">{{startTime}}-{{endTime}}{{actName}}</view>
+<view class="spacing"></view>
+<view class="flex money">
+  <view>基本费用/人</view>
+  <view class="num">{{price}}元</view>
+</view>
+<view class="spacing"></view>
+<view class="time">
+  <view class="tit">
+    请选择集合地点
+  </view>
+  <view class="addresses">
+    <view class="address-box" style="width: {{addressWidth}}rpx;">
+      <view class="address {{item.spot==addressSpot?'active':''}}" data-address="{{item.spot}}" wx:for="{{address}}" bindtap="address" wx:key="key">
+        {{item.time}}{{item.spot}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="spacing"></view>
+<view class="people-box">
+  <view class="people" wx:for="{{people}}" wx:key="key">
+    <view class="flex {{item.id==peopleId?'active':''}}">
+      <view class="del" data-people="{{item.id}}" bindtap="delShow">-</view>
+      <view class="name" data-people="{{item.id}}" style="width:550rpx;" bindtap="delHide">{{item.name}}</view>
+      <view class="age">{{item.sex}}</view>
+      <view class="del-btn" data-people="{{item.id}}" bindtap="del">删除</view>
+    </view>
+  </view>
+  <navigator url="../usualContact/usualContact" class="add-people" redirect><text>+</text> 添加成员</navigator>
+</view>
+<!-- <view class="big-spacing"></view> -->
+<view class='operation-bottom'>
+  <view class="safe">
+    安全事项说明:
+    <text bindtap="safe">报名前请知悉阅读安全事项协议并同意</text>
+    <checkbox-group bindchange="checkboxChange" class="fr">
+      <checkbox value="yes" checked="" />
+    </checkbox-group>
+  </view>
+  <view class="big-spacing"></view>
+  <view class="total-fee flex">
+    <view>
+      总费用：<text style="color: #2aba6e;">{{totalFee}}</text>元<text style="color:#99a4bf;">(已优惠{{free}}元)</text>
+    </view>
+    <view class="pay" bindtap="pay">支付</view>
+  </view>
+</view>
+<view class="meng" style="display: {{safeShow}}"></view>
+<view class="safe-box" style="display: {{safeShow}}">
+  <view class="tit">一起去海边俱乐部公约及免责条款：</view>
+  <text>1. 本次活动是一个自由结合的临时性团体，我们的活动有一定的危险性，参加者要有一定的自理和处理事物的能力，须对自己的安全负责。对于活动中队员因个人因素和不可抗拒自然因素造成的事故和伤害，其他成员（包括本次活动的发起人，领队，副领队及押队）不负任何法律、经济和医疗责任。</text>
+  <text>2. 当由于意外事故和急性疾病等不可预测因素造成队员身体损伤时，团队的其他成员有义务尽力救助，但如果造成了不可逆转的永久损伤，团队的其他成员不负担任何责任。</text>
+  <text>3. 团队中的任何一个队员应该本着“尽力救助，风险自担”的原则参加这些活动，活动自身存在一定的危险性和不可预见性，参加活动者要对自己的行为负责，因个人因素导致的意外事故及刑事责任，自己负责。</text>
+  <text>4．活动开始后，本声明将自动生效并表明你接受本声明,否则请退出本次活动。</text>
+  <button bindtap="safeHide">已阅读并同意</button>
+</view>

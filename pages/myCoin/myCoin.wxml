@@ -1,0 +1,10 @@
+<!--pages/myCoin/myCoin.wxml-->
+<view class='flex coin-list' wx:for="{{coinList}}" wx:key="key">
+  <view class='info'>
+    <view>
+      {{item.remark}}
+    </view>
+    <text>{{item.createTime}}</text>
+  </view>
+  <view class='money'>{{item.count}}</view>
+</view>

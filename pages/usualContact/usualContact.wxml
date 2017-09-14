@@ -1,0 +1,21 @@
+<!--pages/usualContact/usualContact.wxml-->
+<view class="tit flex">
+  <text>报名人员</text>
+  <navigator url="../addPeople/addPeople" redirect>+</navigator>
+</view>
+<view class="list">
+  <checkbox-group bindchange="checkboxChange">
+    <view class="checkbox flex" wx:for="{{list}}" wx:key="key">
+      <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+      <view class="info">
+        <view>
+          姓名：<text>{{item.name}}{{item.tag?'('+item.tag+')':''}}</text>
+        </view>
+        <view>性别：<text>{{item.sex}}</text></view>
+        <view>电话：<text>{{item.mobile}}</text></view>
+        <view>证件号：<text>{{item.idNum}}</text></view>
+      </view>
+    </view>
+  </checkbox-group>
+</view>
+<button bindtap="sub">提交</button>
