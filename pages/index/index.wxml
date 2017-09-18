@@ -4,7 +4,7 @@
     autoplay="auto" duration="500" class="carousel-box">
     <block wx:for="{{carousel}}" wx:key="key">
       <swiper-item>
-        <image src="{{ip}}{{item.img}}" class="carousel-img"></image>
+        <view style="background-image: url({{ipimg}}{{item.img}});" class="carousel-img bg"></view>
       </swiper-item>
     </block>
   </swiper>
@@ -13,7 +13,7 @@
   </view>
 </view>
 <view class="nav-icon">
-  <navigator url="{{item.url}}" wx:for="{{navIcon}}" wx:key="key">
+  <navigator hover-class="none" url="{{item.url}}" wx:for="{{navIcon}}" wx:key="key">
     <image src="{{item.img}}"></image>
     <text>{{item.name}}</text>
   </navigator>
@@ -28,8 +28,8 @@
   <swiper autoplay="" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper act" style='height:{{actHeight}}rpx'>  
     <block  wx:key="unique" wx:for="{{act}}" wx:key="key">  
       <swiper-item class="act-list">  
-        <navigator url="../detail/detail?infoId={{item.infoId}}" wx:for="{{item}}" wx:key="key">
-          <view style="background-image: url({{ip}}{{item.actImg}});" class="act-img"></view>  
+        <navigator hover-class="none" url="../detail/detail?infoId={{item.infoId}}" wx:for="{{item}}" wx:key="key">
+          <view style="background-image: url({{ipimg}}{{item.actImg}});" class="act-img bg"></view>  
           <view class="decribe">
             <view>{{item.actName}}</view>
             <text>{{item.startTime}}</text>
@@ -52,8 +52,8 @@
   <view>精品推荐</view>
   <image src="../images/ind_56.png"></image>
 </view>
-<navigator url="../detail/detail?infoId={{item.id}}" class="command" wx:for="{{command}}" wx:key="key">
-  <image src="{{ip}}{{item.actImg}}" class="show-img"></image>
+<navigator hover-class="none" url="../detail/detail?infoId={{item.id}}" class="command" wx:for="{{command}}" wx:key="key">
+  <view class='show-img bg' style='background:url({{ipimg}}{{item.actImg}})'></view>
   <view class="status">HOT</view>
   <view class="flex">
     <text>{{item.actName}}</text>
@@ -70,7 +70,7 @@
   <view>猜你喜欢</view>
   <image src="../images/ind_56.png"></image>
 </view>
-<navigator url="" class="command" wx:for="{{like}}" wx:key="key">
+<navigator hover-class="none" url="" class="command" wx:for="{{like}}" wx:key="key">
   <image src="{{item.img}}" class="show-img"></image>
   <view class="flex">
     <text>{{item.name}}</text>
@@ -82,22 +82,22 @@
 </navigator> -->
 <view class="bottom-spacing"></view>
 <view class="nav flex">
-  <navigator url="../index/index" class="active" redirect>
+  <navigator hover-class="none" url="../index/index" class="active" redirect>
     <image src="../images/nav1.png"></image>
     <image src="../images/nav2.png"></image>
     <text>首页</text>
   </navigator>
-  <navigator url="../classify/classify" redirect>
+  <navigator hover-class="none" url="../classify/classify" redirect>
     <image src="../images/nav3.png"></image>
     <image src="../images/nav4.png"></image>
     <text>分类</text>
   </navigator>
-  <!-- <navigator url="../order/order" redirect>
+  <!-- <navigator hover-class="none" url="../order/order" redirect>
     <image src="../images/nav5.png"></image>
     <image src="../images/nav6.png"></image>
     <text>订单</text>
   </navigator> -->
-  <navigator url="../people/people" redirect>
+  <navigator hover-class="none" url="../people/people" redirect>
     <image src="../images/nav7.png"></image>
     <image src="../images/nav8.png"></image>
     <text>我的</text>

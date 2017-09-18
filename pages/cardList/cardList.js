@@ -13,6 +13,7 @@ Page({
    */
   onLoad: function (options) {
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     //卡券列表
     var that = this;
     wx.request({
@@ -28,6 +29,7 @@ Page({
         console.log(cards)
         that.setData({
           ip: ip,
+          ipimg: ipimg,
           cards: cards
         })
       },

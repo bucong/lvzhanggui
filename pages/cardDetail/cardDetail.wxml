@@ -1,7 +1,7 @@
 <!--pages/cardDetail/cardDetail.wxml-->
 <import src="../../wxParse/wxParse.wxml"/>  
 <view class='show-img'>
-  <image src='{{ip}}{{img}}'></image> 
+  <image src='{{ipimg}}{{img}}'></image> 
   <view>{{name}}</view>
 </view>
 <view class='detail-box'>

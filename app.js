@@ -25,7 +25,8 @@ App({
 
   globalData: {
     // ip: 'http://127.0.0.1:8088/club_2',
-    ip: 'https://xiaochengxu.sodo-tech.com', 
+    ip: 'https://xiaochengxu.sodo-tech.com/club_2',
+    ipimg: 'https://xiaochengxu.sodo-tech.com',
     appid: 'wxb2178abdca45ba17',
     secret: '4ee7f4781199b79b327afd6021cc0836',
     title: '俱乐部2'

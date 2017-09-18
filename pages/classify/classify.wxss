@@ -39,7 +39,7 @@
 .address navigator:nth-child(3n){
   margin-right: 0;
 }
-.address image{
+.address .image{
   width: 246rpx;
   height: 246rpx;
 }

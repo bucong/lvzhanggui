@@ -21,6 +21,7 @@ Page({
    */
   onLoad: function (options) {
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     //获取报名活动信息
     wx.request({
@@ -84,6 +85,7 @@ Page({
         }
         that.setData({
           ip: ip,
+          ipimg: ipimg,
           actId: options.actId,
           infoId: data.activity.infoId,
           carousel: data.imgList,

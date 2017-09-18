@@ -177,8 +177,8 @@
   right: 10rpx;
 }
 .consult image{
-  width: 116rpx;
-  height: 116rpx;
+  width: 132rpx;
+  height: 132rpx;
 }
 .detail-nav{
   height: 100rpx;
@@ -324,22 +324,22 @@
   margin-right: 16rpx;
 }
 .group-box .name{
-  padding: 54rpx 0 16rpx 0;
+  padding: 48rpx 0 16rpx 0;
   text-align: center;
   font-size: 40rpx;
 }
 .group-box .info{
   font-size: 26rpx;
-  padding: 10rpx;
+  padding: 8rpx;
   margin-left: 116rpx;
+  display: flex;
+  align-items: center;
 }
 .group-box .info .score{
   width: 136rpx;
   height: 24rpx;
 }
 .group-box .head{
-  /* display: block;
-  margin: 0 auto; */
   position: absolute;
   top: 284rpx;
   left: 208rpx;
@@ -405,7 +405,7 @@
   border-bottom: 1rpx solid #eee;
 }
 .consult-box .contact{
-  width: 50%;
+  width: 100%;
   margin-top: 10rpx;
   line-height: 60rpx;
   font-size: 30rpx;

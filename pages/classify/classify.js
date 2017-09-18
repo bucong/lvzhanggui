@@ -48,7 +48,8 @@ Page({
     var ip = getApp().globalData.ip;
     var that = this;
     that.setData({
-      ip: ip
+      ip: ip,
+      ipimg: getApp().globalData.ipimg
     })
     //活动类型
     wx.request({

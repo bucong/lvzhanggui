@@ -20,6 +20,7 @@ Page({
   onLoad: function (options) {
     var id=options.id;
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     //活动类型
     wx.request({
@@ -37,6 +38,7 @@ Page({
           if(id==data[i].id){
             that.setData({
               ip: ip,
+              ipimg: ipimg,
               headImg: data[i].headImg,
               nickName: data[i].nickname,
               name: data[i].name,

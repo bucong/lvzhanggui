@@ -1,6 +1,6 @@
 <!--pages/actList/actList.wxml-->
-<navigator url="../detail/detail?infoId={{item.id}}" class="act-list" wx:for="{{actList}}" wx:key="key">
-  <image src="{{ip}}{{item.actImg}}" class="show-img"></image>
+<navigator hover-class="none" url="../detail/detail?infoId={{item.id}}" class="act-list" wx:for="{{actList}}" wx:key="key">
+  <view class='show-img bg' style='background: url({{ipimg}}{{item.actImg}})'></view>
   <view class="name">{{item.actName}}</view>
   <view class="price">￥{{item.price}}</view>
    <image src="../images/time.png" class="icon"></image> 

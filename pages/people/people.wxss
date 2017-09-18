@@ -223,7 +223,7 @@ page{
   margin-top: 32rpx;
   border-top: 1rpx solid #999;
 }
-.activity-list image{
+.activity-list .image{
   width: 500rpx;
   height: 200rpx;
 }

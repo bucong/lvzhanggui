@@ -17,7 +17,8 @@ Page({
     var ip = getApp().globalData.ip;
     var that = this;
     that.setData({
-      ip: ip
+      ip: ip,
+      ipimg: getApp().globalData.ipimg
     })
     var request = '';
     if (options.types) {

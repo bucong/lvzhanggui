@@ -19,6 +19,7 @@ Page({
   onLoad: function (options) {
     WxParse.emojisInit('[]', "/wxParse/emojis/", {});
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     //游记类型
     wx.request({
@@ -39,7 +40,7 @@ Page({
           takeNoteTime: getApp().transDate3(data.takeNoteTime),
           viewCount: data.viewCount
         })
-        data.content = data.content.replace('src="', 'src="' + ip);  //给图片添加路径
+        data.content = data.content.replace('src="', 'src="' + ipimg);  //给图片添加路径
         WxParse.wxParse('content', 'html', data.content, that);
       },
       fail: function (res) {

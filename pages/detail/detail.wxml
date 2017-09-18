@@ -4,7 +4,7 @@
   autoplay="auto" duration="500" class="carousel-box">
   <block wx:for="{{carousel}}" wx:key="key">
     <swiper-item>
-      <image src="{{ip}}{{item}}" class="carousel-img"></image>
+      <view style="background-image: url({{ipimg}}{{item}});" class="carousel-img bg"></view>
     </swiper-item>
   </block>
   <text>火热报名中</text>
@@ -25,7 +25,7 @@
     <view class="discount" hidden="{{discount}}">折</view>
   </view>
   <view class="spacing"></view>
-  <navigator url="../map/map?id={{id}}" class="flex location">
+  <navigator hover-class="none" url="../map/map?id={{id}}" class="flex location">
     <image src="../images/detail_06.png"></image>
     <view>{{location}}</view>
     <image src="../images/detail_07.png"></image>
@@ -71,8 +71,16 @@
     <view>名称：{{item.name}}</view>
     <view>膳食：{{item.dining}}</view>
     <view>住宿：{{item.acd}}</view>
-    <view>{{item.detail}}</view>
-      <!-- <view><template is="wxParse" data="{{wxParseData:item.days.nodes}}"/></view>   -->
+    <view class='rich-text'>
+      <view style="display:{{index==0?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day0.nodes}}"/></view>
+      <view style="display:{{index==1?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day1.nodes}}"/></view>
+      <view style="display:{{index==2?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day2.nodes}}"/></view>
+      <view style="display:{{index==3?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day3.nodes}}"/></view>
+      <view style="display:{{index==4?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day4.nodes}}"/></view>
+      <view style="display:{{index==5?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day5.nodes}}"/></view>
+      <view style="display:{{index==6?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day6.nodes}}"/></view>
+      <view style="display:{{index==7?'block':'none'}}"><template is="wxParse" data="{{wxParseData:day7.nodes}}"/></view>
+    </view>
   </view>
 </view>
 <view class="fee same rich-text" style="display: {{tab=='fee' ? 'block':'none'}};">
@@ -85,7 +93,7 @@
 <view class="consult" style="bottom: {{alreadyHeight}}rpx" bindtap="consult">
   <image src="../images/detail_13.png"></image>
 </view>
-<view class="follow flex" style="display:{{alreadyAttention}}">
+<!-- <view class="follow flex" style="display:{{alreadyAttention}}">
   <image src="../images/detail_20.png" class="close" bindtap="closeAttention"></image>
   <image src="../images/detail_17.png" class="logo"></image>
   <view class="describe">
@@ -93,10 +101,10 @@
     查看更多精彩活动！
   </view>
   <view class="payattention" bindtap="showPay">关注</view>
-</view>
-<view style="height: 200rpx;"></view>
+</view> -->
+<view style="height: 100rpx;"></view>
 <view class="detail-nav flex">
-  <navigator url="../index/index" class="border-top" open-type="reLaunch">
+  <navigator hover-class="none" url="../index/index" class="border-top" open-type="reLaunch">
     <image src="../images/nav1.png"></image>
     <text>首页</text>
   </navigator>
@@ -109,7 +117,7 @@
 <view class="meng" style="display: {{showpay}}" bindtap="closePay"></view>
 <view class="qr-code" style="display: {{showpay}}">
   <!-- <view class="tit">关注我们</view> -->
-   <image src="{{ip}}{{wxImg}}"></image> 
+   <image src="{{ipimg}}{{wxImg}}"></image> 
   <!-- <text>长按识别二维码</text>
   <text>关注徒扬俱乐部</text>
   <view class="info">点击窗口外任意处，关闭本窗口</view> -->
@@ -129,13 +137,13 @@
             </view>
             <view class="info">
               <image src="../images/group_06.png"></image>
-              <text>带队次数：{{item.times}}次</text>
+              <text>带队次数：24次</text>
             </view>
             <view class="info">
               <image src="../images/group_08.png"></image>
-              <text>评分：</text><image src="../images/score{{item.score}}.png" class="score"></image>
+              <text>评分：</text><image src="../images/score4.png" class="score"></image>
             </view>
-             <image src="{{ip}}{{item.headImg}}" class="head"></image>  
+             <image src="{{ipimg}}{{item.headImg}}" class="head"></image>  
           </view>
           <view class="name-main">
             {{item.nickname}}
@@ -153,10 +161,10 @@
 <view class="consult-box" style="display:{{consult}}">
   <view class="tit">咨询报名</view>
   <view class="flex">
-    <view class="contact">
-      <image src="{{ip}}{{kfImg}}"></image>
+    <!-- <view class="contact">
+      <image src="{{ipimg}}{{kfImg}}"></image>
       <view>客服微信</view>
-    </view>
+    </view> -->
     <view class="contact">
       <image src="../images/phone.png" bindtap="call"></image>
       <view>客服电话</view>

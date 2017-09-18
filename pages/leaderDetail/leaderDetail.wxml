@@ -1,6 +1,6 @@
 <!--pages/leaderDetail/leaderDetail.wxml-->
 <view class='flex box'>
-  <image src='{{ip}}{{headImg}}' class='head-img'></image>
+  <image src='{{ipimg}}{{headImg}}' class='head-img'></image>
   <view class='right'>  
     <view>昵称：<text>{{nickName}}</text></view>
     <view style="display: {{isShow?'block':'none'}}">

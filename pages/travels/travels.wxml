@@ -10,7 +10,7 @@
   <block wx:for="{{travelList}}" wx:key="key">
     <swiper-item>
       <view class='travel-box'>
-        <navigator url='../travelDetail/travelDetail?id={{item.id}}' wx:for="{{item}}" wx:key="key">
+        <navigator hover-class="none" url='../travelDetail/travelDetail?id={{item.id}}' wx:for="{{item}}" wx:key="key">
           <view class='tit'>{{item.title}}</view>
           <view class='flex'>
             <image src='../images/note1.png'></image>

@@ -8,6 +8,6 @@
   <image src='../images/note1.png'></image>
   <text>{{viewCount}}</text>
 </view>
-<view class='content'>
+<view class='content rich-text'>
   <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
 </view>

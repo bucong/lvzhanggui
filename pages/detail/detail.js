@@ -24,7 +24,7 @@ Page({
     peopleNum: '',
     applyLimit: '',
     alreadyAttention: 'flex',
-    alreadyHeight: 220,
+    alreadyHeight: 120,
     showpay: 'none',
     group: [],
     showGroup: 'none',
@@ -53,9 +53,11 @@ Page({
    */
   onReady: function (options) {
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     that.setData({
-      ip: ip
+      ip: ip,
+      ipimg: ipimg
     })
     //初始化活动详情
     wx.request({
@@ -90,19 +92,16 @@ Page({
         for (var j = 0; j < batchList.length;j++){
           batchList[j].startTime = app.transDate(batchList[j].startTime);
         }
-        data.actDetail = data.actDetail.replace('src="', 'src="' + ip);
+        data.actDetail = data.actDetail.replace('src="', 'src="' + ipimg);
         WxParse.wxParse('actDetail', 'html', data.actDetail, that);
-        data.feeDetail = data.feeDetail.replace('src="', 'src="' + ip);
+        data.feeDetail = data.feeDetail.replace('src="', 'src="' + ipimg);
         WxParse.wxParse('feeDetail', 'html', data.feeDetail, that);
-        data.travelTips = data.travelTips.replace('src="', 'src="' + ip);
+        data.travelTips = data.travelTips.replace('src="', 'src="' + ipimg);
         WxParse.wxParse('travelTips', 'html', data.travelTips, that);
-        // for (var k = 0; k < data.scheduleList.length;k++){
-        //   data.scheduleList[k].days = 'day'+k;
-        //   data.scheduleList[k].detail = data.scheduleList[k].detail.replace('src="', 'src="' + ip);
-        //   WxParse.wxParse(data.scheduleList[k].days, 'html', data.scheduleList[k].detail, that);
-        // }
-        for (var k = 0; k < data.scheduleList.length; k++) {
-          data.scheduleList[k].detail = data.scheduleList[k].detail.substring(3, data.scheduleList[k].detail.length-4);
+        for (var k = 0; k < data.scheduleList.length;k++){
+          data.scheduleList[k].days = 'day'+k;
+          data.scheduleList[k].detail = data.scheduleList[k].detail.replace('src="', 'src="' + ipimg);
+          WxParse.wxParse(data.scheduleList[k].days, 'html', data.scheduleList[k].detail, that);
         }
         that.setData({
           carousel: carousel,

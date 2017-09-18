@@ -2,7 +2,7 @@
 <swiper indicator-dots="" autoplay="auto" duration="500" class="carousel-box">
   <block wx:for="{{carousel}}" wx:key="key">
     <swiper-item>
-      <image src="{{ip}}{{item}}" class="carousel-img"></image>
+      <view style="background-image: url({{ipimg}}{{item}});" class="carousel-img bg"></view>
     </swiper-item>
   </block>
   <view class='flex act-tit'>
@@ -30,8 +30,8 @@
     <image src='../images/leader.png'></image>
     <text>领队</text>
   </view> 
-  <navigator url='../leaderDetail/leaderDetail?id={{item.id}}' class='leader-list' wx:for="{{leaderList}}" wx:key="key">
-    <image src='{{ip}}{{item.headImg}}'></image>
+  <navigator hover-class="none" url='../leaderDetail/leaderDetail?id={{item.id}}' class='leader-list' wx:for="{{leaderList}}" wx:key="key">
+    <image src='{{ipimg}}{{item.headImg}}'></image>
     <text>{{item.nickname}}</text>
   </navigator>  
 </view>

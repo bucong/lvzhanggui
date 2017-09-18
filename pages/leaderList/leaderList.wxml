@@ -1,7 +1,7 @@
 <!--pages/leaderList/leaderList.wxml-->
 <view class='box'>
-  <navigator url='../leaderDetail/leaderDetail?id={{item.id}}' class='leader-list' wx:for="{{leaderList}}" wx:key="key">
-    <image src='{{ip}}{{item.headImg}}'></image>
+  <navigator hover-class="none" url='../leaderDetail/leaderDetail?id={{item.id}}' class='leader-list' wx:for="{{leaderList}}" wx:key="key">
+    <image src='{{ipimg}}{{item.headImg}}'></image>
     <view>{{item.nickname}}</view>
   </navigator>
 </view>

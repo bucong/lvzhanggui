@@ -39,6 +39,7 @@ Page({
         console.log(data)
         that.setData({
           ip: ip,
+          ipimg: getApp().globalData.ipimg,
           id: data.id,
           img: data.detailImg,
           name: data.name,
@@ -46,8 +47,8 @@ Page({
           price: data.preferentialPrice,
           originalPrice: data.originalPrice
         })
-        data.couponDetail = data.couponDetail.replace('src="', 'src="' + ip);
-        data.cardExplain = data.cardExplain.replace('src="', 'src="' + ip);
+        data.couponDetail = data.couponDetail.replace('src="', 'src="' + ipimg);
+        data.cardExplain = data.cardExplain.replace('src="', 'src="' + ipimg);
         WxParse.wxParse('couponDetail', 'html', data.couponDetail, that);
         WxParse.wxParse('cardExplain', 'html', data.cardExplain, that);
       },

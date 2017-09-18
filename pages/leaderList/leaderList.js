@@ -14,6 +14,7 @@ Page({
    */
   onLoad: function (options) {
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     //活动类型
     wx.request({
@@ -30,7 +31,8 @@ Page({
         console.log(data)
         that.setData({
           leaderList: data,
-          ip: ip
+          ip: ip,
+          ipimg: ipimg
         })
       },
       fail: function (res) {

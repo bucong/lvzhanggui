@@ -37,9 +37,11 @@ Page({
       })
     }
     var ip = getApp().globalData.ip;
+    var ipimg = getApp().globalData.ipimg;
     var that = this;
     that.setData({
-      ip: ip
+      ip: ip,
+      ipimg: ipimg
     })
     //获取用户信息
     getApp().getUserInfo(function (userInfo) {

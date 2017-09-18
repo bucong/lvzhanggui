@@ -4,7 +4,7 @@
   <view class="info-list flex">
     <text>姓名</text>
     <input type="text" class="name" placeholder="输入姓名" bindblur="name" />
-    <navigator url="../usualContact/usualContact" class="offen" redirect>
+    <navigator hover-class="none" url="../usualContact/usualContact" class="offen" redirect>
       常用联系人<label> > </label>
     </navigator>
   </view>

@@ -89,3 +89,8 @@
 .rich-text image{
   width: 100% !important;
 }
+.bg{
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center;
+}

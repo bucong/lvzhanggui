@@ -44,9 +44,9 @@ page{
   display: inline-block;
   width: 180rpx;
   height: 58rpx;
-  padding: 30rpx 60rpx 30rpx 20rpx;
+  padding: 30rpx 60rpx 40rpx 20rpx;
   vertical-align: middle;
-  margin-bottom: 10rpx;
+  background-repeat: no-repeat !important;
 }
 .address-box .address{
   /* background: url(../images/add3.png); */

@@ -28,7 +28,7 @@
       <view class="del-btn" data-people="{{item.id}}" bindtap="del">删除</view>
     </view>
   </view>
-  <navigator url="../usualContact/usualContact" class="add-people" redirect><text>+</text> 添加成员</navigator>
+  <navigator hover-class="none" url="../usualContact/usualContact" class="add-people" redirect><text>+</text> 添加成员</navigator>
 </view>
 <!-- <view class="big-spacing"></view> -->
 <view class='operation-bottom'>

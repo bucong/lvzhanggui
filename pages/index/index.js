@@ -33,7 +33,8 @@ Page({
     var that = this;
     that.setData({
       ip: ip,
-      searchbg: searchbg
+      searchbg: searchbg,
+      ipimg: getApp().globalData.ipimg
     })
     //登录
     app.getUserInfo(function (userInfo) {
