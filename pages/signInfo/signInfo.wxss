@@ -80,7 +80,6 @@ page{
 } 
 .people-box{
   background: #fff;
-  border-bottom: 1rpx solid #d9d9d9;
 }
 .people{
   width: 720rpx;
@@ -112,15 +111,12 @@ page{
   text-align: center;
 }
 .people-box .add-people{
-  text-align: center;
+  justify-content: center;
 }
-.people-box .add-people text{
-  display: inline-block;
-  width: 30rpx;
-  height: 30rpx;
-  line-height: 26rpx;
-  border: 1rpx solid #2aba6e;
-  border-radius: 16rpx;
+.people-box .add-people image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
 }
 .people .del{
   width: 32rpx;
@@ -134,20 +130,35 @@ page{
   line-height: 80rpx;
   color: #2aba6e;
 }
-.operation-bottom{
+.cards-box{
+  color: #333;
+  font-size: 28rpx;
+  background: #fff;
+}
+.card-list{
+  height: 82rpx;
+  margin: 0 20rpx;
+  border-top: 1rpx solid #ddd;
+}
+.card-list text{
+  color: #777;
+}
+.card-list:first-child{
+  border-top: none;
+}
+/* .operation-bottom{
   position: fixed;
   bottom: 0;
   width: 750rpx;
   padding-bottom: 60rpx;
   background: #efeff4;
   z-index: 20;
-}
+} */
 .safe{
   font-size: 24rpx;
   line-height: 80rpx;
   padding: 0 30rpx;
   background: #fff;
-  border-top: 1rpx solid #d9d9d9;
 }
 .safe text{
   color: #ff5047;

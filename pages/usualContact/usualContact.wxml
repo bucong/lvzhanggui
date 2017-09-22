@@ -1,7 +1,9 @@
 <!--pages/usualContact/usualContact.wxml-->
 <view class="tit flex">
   <text>报名人员</text>
-  <navigator hover-class="none" url="../addPeople/addPeople" redirect>+</navigator>
+  <navigator hover-class="none" url="../addPeople/addPeople" redirect>
+    <image src='../images/add.png'></image>
+  </navigator>
 </view>
 <view class="list">
   <checkbox-group bindchange="checkboxChange">

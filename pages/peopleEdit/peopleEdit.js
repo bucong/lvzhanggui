@@ -42,6 +42,9 @@ Page({
         if(data.name==null){
           data.name=''
         }
+        if (data.nickName == null) {
+          data.nickName = ''
+        }
         if (data.idNum == null) {
           data.idNum = ''
         }

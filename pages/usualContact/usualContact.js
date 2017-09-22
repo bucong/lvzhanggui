@@ -30,9 +30,13 @@ Page({
       method: 'POST',
       dataType: '',
       success: function (res) {
-        console.log(JSON.parse(res.data.data))
+        var data = JSON.parse(res.data.data);
+        for (var k = 0; k < data.length; k++) {
+          data[k].mobile = data[k].mobile.substring(0, 3) + '****' + data[k].mobile.substring(7, 11);
+          data[k].idNum = data[k].idNum.substring(0, 4) + '**********' + data[k].idNum.substring(14, 18);
+        }
         that.setData({
-          list: JSON.parse(res.data.data)
+          list: data
         })
       },
       fail: function (res) {

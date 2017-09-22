@@ -2,7 +2,7 @@
 <view class="total-fee">总金额：{{totalFee}}元</view>
 <view class="actual-fee flex">
   <view style="color: #99a4bf;">实付金额</view>
-  <text>￥{{actualFee}}</text>
+  <text>￥{{actualFee-useIntegral}}</text>
 </view>
 <view class="pay-style">选择支付方式</view>
 <view class="pay-list">
@@ -14,4 +14,16 @@
     </view>
   </radio-group>
 </view>
-<button class="pay" bindtap="requestPayment" loading="{{loading}}">{{actualFee}}元 确认支付</button>
+<view class='integral' style="display: {{canUsePoint==''?'none':'flex'}};">
+  <view class='flex'>
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox value="{{canUsePoint}}" checked="{{pointCheck}}" />
+    </checkbox-group>
+    <view>使用积分</view>
+    当前积分
+    <text class='pointUser'>{{pointUser}}</text>
+    可用积分
+    <text class='canUsePoint'>{{canUsePoint}}</text>
+  </view>
+</view>
+<button class="pay" bindtap="requestPayment" loading="{{loading}}">{{actualFee-useIntegral}}元 确认支付</button>

@@ -1,0 +1,25 @@
+<!--pages/addPeople/addPeople.wxml-->
+<view class="top-spacing"></view>
+<view class="info-box">
+  <view class="info-list flex">
+    <text>姓名</text>
+    <input type="text" class="name" placeholder="输入姓名" bindblur="name" />
+  </view>
+  <view class="info-list flex">
+    <text>性别</text>
+    <picker bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+      <view>
+        {{array[sex]}}
+      </view>
+    </picker>
+  </view>
+  <view class="info-list flex">
+    <text>身份证</text>
+    <input type="text" placeholder="输入身份证号码" bindblur="checkIdCard" />
+  </view>
+  <view class="info-list flex">
+    <text>{{infoName}}</text>
+    <input type="text" placeholder="{{infoVal}}" bindblur="checkPhone" />
+  </view>
+</view>
+<button class="sub" bindtap="sub">添加人员</button>

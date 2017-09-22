@@ -8,15 +8,9 @@ page{
   padding: 20rpx;
   background: #fff;
 }
-.tit navigator{
-  font-size: 50rpx;
-  color: #2b9a26;
-  border: 1rpx solid #2b9a26;
-  border-radius: 50%;
-  height: 40rpx;
-  width: 40rpx;
-  line-height: 40rpx;
-  text-align: center;
+.tit navigator image{
+  height: 46rpx;
+  width: 46rpx;
 }
 .list{
   padding-left: 30rpx;

@@ -13,7 +13,8 @@ Page({
     operationId: '',
     operation: '删除',
     actPartId: '',
-    operationShow: 'none'
+    operationShow: 'none',
+    applayStatus: ''
   },
 
   /**
@@ -39,11 +40,13 @@ Page({
         console.log(data);
         var gatherPlace = JSON.parse(data.activity.gatherPlace);
         for(var i=0;i<gatherPlace.length;i++){
-          gatherPlace[i].time = app.transDate2(gatherPlace[i].time);
+          gatherPlace[i].time = app.getDate(gatherPlace[i].time);
         }
         var actApplyList = data.actApplyList;
         var actStatus=data.activity.status;
         for (var j = 0; j < actApplyList.length; j++){
+          actApplyList[j].parMobile = actApplyList[j].parMobile.substring(0, 3) + '****' + actApplyList[j].parMobile.substring(7, 11);
+          actApplyList[j].parNum = actApplyList[j].parNum.substring(0, 4) + '**********' + actApplyList[j].parNum.substring(14, 18);
           if (actApplyList[j].status==0){
             actApplyList[j].status = '已付全款';
             if (actStatus==1){
@@ -96,7 +99,8 @@ Page({
           gatherPlace: gatherPlace,
           leaderList: data.leaderList,
           actApplyList: data.actApplyList,
-          allPayMoney: data.allPayMoney
+          allPayMoney: data.allPayMoney,
+          applayStatus: data.activity.applayStatus
         })
       },
       fail: function (res) {

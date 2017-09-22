@@ -9,24 +9,19 @@ Page({
     startTime: '',
     endTime: '',
     actName: '',
-    originalPrice: '',
     price: '',
+    earlyPrice: '',
     peopleId: '',
-    people: [
-      // { id: 1, name: '张学友', age: '成人' },
-      // { id: 2, name: '郭富城', age: '成人' },
-      // { id: 3, name: '胡歌', age: '孩子'},
-    ],
+    people: [],
     totalFee: 0,
     totalPrice: '',
+    cardDisCount: 0,
     free: 0,
     addressSpot: '',
-    address: [
-      // { id: 1, address: '19:30一号线莲花路站，南方商城' },
-      // { id: 2, address: '19:30一号线莲花路站，南方商城' },
-      // { id: 3, address: '19:30一号线莲花路站，南方商城' },
-      // {id: 4, address: '19:30一号线莲花路站，南方商城'},
-    ],
+    address: [],
+    cards: [],
+    memberCouponId: '',
+    discount: '',
     addressWidth: 1100,
     safeShow: 'none',
     readSafe: '',
@@ -37,14 +32,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (wx.getStorageSync('login') == 'no') {
-      wx.redirectTo({
-        url: '../bindPhone/bindPhone',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
     var ip = getApp().globalData.ip;
     var that = this;
     that.setData({
@@ -68,11 +55,18 @@ Page({
         console.log(data)
         var address=JSON.parse(data.gatherPlace)
         for(var i=0;i<address.length;i++){
-          address[i].time = app.transDate2(address[i].time)
+          address[i].time = app.getDate(address[i].time)
+        }
+        var batch = data.batchList;
+        for(var k=0;k<batch.length;k++){
+          if (batch[k].id == wx.getStorageSync('actId')) {
+            var actStartTime = app.transDate2(batch[k].startTime);
+            var actEndTime = app.transDate2(batch[k].endTime);
+          }
         }
         that.setData({
-          startTime: app.transDate2(data.startTime),
-          endTime: app.transDate2(data.endTime),
+          startTime: actStartTime,
+          endTime: actEndTime,
           actName: data.actName,
           price: data.price,
           originalPrice: data.price,
@@ -94,8 +88,10 @@ Page({
             var data = JSON.parse(res.data.data);
             if (data) {//有早鸟价
               that.setData({
-                price: data
+                earlyPrice: data
               })
+            }else{
+              earlyPrice: that.data.price
             }
             //报名人员列表
             if (options.peopleList) {
@@ -105,14 +101,37 @@ Page({
               for (var j = 0; j < people.length; j++) {
                 contactsIdList += people[j].id + ';';
               }
-              var originalPrice = that.data.originalPrice;
+              var earlyPrice = that.data.earlyPrice;
               var price = that.data.price;
               that.setData({
                 people: people,
                 contactsIdList: contactsIdList,
-                totalFee: price * people.length,
-                free: (originalPrice - price) * people.length,
-                totalPrice: originalPrice*people.length
+                totalFee: earlyPrice * people.length,
+                free: (price - earlyPrice) * people.length,
+                totalPrice: price*people.length
+              })
+              //使用卡劵和积分
+              wx.request({
+                url: ip + '/applet/user/get_member_act_discountRules',
+                data: { actId: wx.getStorageSync('actId'), contactsIdList: contactsIdList  },
+                header: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  "Cookie": 'access_token=' + wx.getStorageSync('access_token')
+                },
+                method: 'POST',
+                dataType: '',
+                success: function (res) {
+                  var data = JSON.parse(res.data.data);
+                  console.log(data)
+                  that.setData({
+                    cards: JSON.parse(data.memberDiscountRulesList)
+                  })
+                },
+                fail: function (res) {
+                  console.log(res)
+                },
+                complete: function (res) {
+                },
               })
             }
           },
@@ -214,15 +233,46 @@ Page({
           for (var j = 0; j < people.length; j++) {
             contactsIdList += people[j].id + ';';
           }
-          var originalPrice = that.data.originalPrice;
+          var earlyPrice = that.data.earlyPrice;
           var price = that.data.price;
           that.setData({
             people: people,
             contactsIdList: contactsIdList,
-            totalFee: price * people.length,
-            free: (originalPrice - price) * people.length,
-            totalPrice: originalPrice * people.length
+            totalFee: earlyPrice * people.length,
+            free: (price - earlyPrice) * people.length,
+            totalPrice: price * people.length
           })
+          console.log(contactsIdList)
+          //使用卡劵
+          if (contactsIdList.length>0){
+            wx.request({
+              url: that.data.ip + '/applet/user/get_member_act_discountRules',
+              data: { actId: wx.getStorageSync('actId'), contactsIdList: contactsIdList },
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Cookie": 'access_token=' + wx.getStorageSync('access_token')
+              },
+              method: 'POST',
+              dataType: '',
+              success: function (res) {
+                var data = JSON.parse(res.data.data);
+                that.setData({
+                  cards: JSON.parse(data.memberDiscountRulesList)
+                })
+                if (JSON.parse(data.memberDiscountRulesList).length==0){
+                  that.setData({
+                    cardDisCount: 0
+                  })
+                }
+              },
+              fail: function (res) {
+                console.log(res)
+              },
+              complete: function (res) {
+              },
+            })
+          }
+          
         }
       },
       fail: function(res) {},
@@ -230,6 +280,15 @@ Page({
     })
     this.setData({
       peopleId: e.target.dataset.people
+    })
+  },
+  //选择优惠卡
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value)
+    var data = e.detail.value.split(';');
+    this.setData({
+      memberCouponId: data[0],
+      cardDisCount: this.data.earlyPrice - data[1] + (this.data.price - this.data.earlyPrice)
     })
   },
   safe: function(){
@@ -267,7 +326,7 @@ Page({
     }
     if(that.data.readSafe=='yes'){
       wx.navigateTo({
-        url: '../pay/pay?contactsIdList=' + that.data.contactsIdList + '&addressSpot=' + that.data.addressSpot + '&totalPrice=' + that.data.totalPrice,
+        url: '../pay/pay?contactsIdList=' + that.data.contactsIdList + '&addressSpot=' + that.data.addressSpot + '&totalPrice=' + that.data.totalPrice + '&memberCouponId=' + that.data.memberCouponId,
         success: function(res) {},
         fail: function(res) {},
         complete: function(res) {},

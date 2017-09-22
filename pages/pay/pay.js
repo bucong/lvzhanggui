@@ -11,7 +11,13 @@ Page({
     contactsIdList: '',
     addressSpot: '',
     payList: [],
-    payType: ''
+    payType: '',
+    memberCouponId: '',
+    canUsePoint: '',
+    pointUser: '',
+    useIntegral: 0,
+    usePoint: '',
+    pointCheck: false
   },
 
   /**
@@ -24,7 +30,8 @@ Page({
       ip: ip,
       addressSpot: options.addressSpot,
       contactsIdList: options.contactsIdList,
-      totalFee: options.totalPrice
+      totalFee: options.totalPrice,
+      memberCouponId: options.memberCouponId
     })
     
     //支付方式
@@ -67,7 +74,8 @@ Page({
           data: {
             activityId: wx.getStorageSync('actId'),
             contactsIdList: that.data.contactsIdList,
-            payType: payList[0].id
+            payType: payList[0].id,
+            memberCouponId: that.data.memberCouponId
           },
           header: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -166,6 +174,13 @@ Page({
     this.setData({
       payType: e.detail.value
     })
+    if (e.detail.value!=0){
+      this.setData({
+        useIntegral: 0,
+        usePoint: '',
+        pointCheck: false
+      })
+    }
     var that=this;
     if (e.detail.value!=2){
       //支付金额
@@ -174,7 +189,9 @@ Page({
         data: {
           activityId: wx.getStorageSync('actId'),
           contactsIdList: that.data.contactsIdList,
-          payType: e.detail.value
+          payType: e.detail.value,
+          memberCouponId: that.data.memberCouponId,
+          usePoint: that.data.usePoint
         },
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -188,6 +205,38 @@ Page({
           that.setData({
             actualFee: data.allPayMoney
           })
+          if (e.detail.value==0){
+            wx.request({
+              url: that.data.ip + '/applet/user/get_member_act_discountRules',
+              data: { actId: wx.getStorageSync('actId'), contactsIdList: that.data.contactsIdList },
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Cookie": 'access_token=' + wx.getStorageSync('access_token')
+              },
+              method: 'POST',
+              dataType: '',
+              success: function (res) {
+                var data = JSON.parse(res.data.data);
+                console.log(data)
+                if(data.canUsePoint){
+                  that.setData({
+                    canUsePoint: data.canUsePoint,
+                    pointUser: data.pointUser
+                  })
+                }
+              },
+              fail: function (res) {
+                console.log(res)
+              },
+              complete: function (res) {
+              },
+            })
+          }else{
+            that.setData({
+              canUsePoint: '',
+              pointUser: ''
+            })
+          }
         },
         fail: function (res) {
           console.log(res)
@@ -202,6 +251,20 @@ Page({
     }
     
   },
+  checkboxChange: function (e) {
+    console.log(e.detail.value[0])
+    if (e.detail.value[0]!='undefined'){
+      this.setData({
+        useIntegral: e.detail.value[0] / 100,
+        usePoint: 1
+      })
+    }else{
+      this.setData({
+        useIntegral: 0,
+        usePoint: ''
+      })
+    }
+  },
   requestPayment: function () {
     var that = this;
     that.setData({
@@ -215,7 +278,9 @@ Page({
         activityId: wx.getStorageSync('actId'),
         contactsIdList: that.data.contactsIdList,
         actAplGatherPlace: that.data.addressSpot,
-        payType: that.data.payType
+        payType: that.data.payType,
+        memberCouponId: that.data.memberCouponId,
+        usePoint: that.data.usePoint
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -5,18 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    show_nav: 'none',
-    status: '免费获取',
+    bindstatus: '免费获取',
     bg: 'grey',
-    phone: '',
-    checkNum: ''
+    bindphone: '',
+    checkNum: '',
+    bindBottom: '-1000'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
 
   /**
@@ -30,7 +30,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
@@ -71,9 +71,9 @@ Page({
     if (/^1[3|4|5|7|8]\d{9}$/.test(e.detail.value)){
       this.setData({
         bg: '#3dbf7b',
-        phone: e.detail.value
+        bindphone: e.detail.value
       })
-      console.log(this.data.phone);
+      console.log(this.data.bindphone);
     }else{
       this.setData({
         bg: 'grey'
@@ -93,24 +93,24 @@ Page({
       that.setData({
         bg: 'grey'
       })
-      wx.setStorageSync('checkPhone', that.data.phone);
+      wx.setStorageSync('checkPhone', that.data.bindphone);
       var i=60;
       var time=setInterval(function(){
         i--;
         that.setData({
-          status: '已发送(' + i + ')'
+          bindstatus: '已发送(' + i + ')'
         })
         if(i==0){
           clearInterval(time);
           that.setData({
-            status: '免费获取',
+            bindstatus: '免费获取',
             bg: '#3dbf7b'
           })
         }
       },1000)
       wx.request({
         url: ip + '/applet/send_verify_code',
-        data: { phone: that.data.phone},
+        data: { phone: that.data.bindphone},
         method: 'POST',
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -146,7 +146,7 @@ Page({
         confirmText: "确定",
         cancelText: "取消"
       })
-    } else if (this.data.phone != wx.getStorageSync('checkPhone')) {
+    } else if (this.data.bindphone != wx.getStorageSync('checkPhone')) {
       wx.showModal({
         title: '提示',
         content: "前后输入的手机号不一致",
@@ -157,7 +157,7 @@ Page({
     }else{
       wx.request({
         url: ip + '/applet/login.do',
-        data: { phone: that.data.phone, vCode: that.data.checkNum },
+        data: { phone: that.data.bindphone, vCode: that.data.checkNum },
         method: 'POST',
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -166,9 +166,10 @@ Page({
         success: function (res) {
           console.log(res)
           if(res.data.data){
-            wx.setStorageSync('login', 'yes');
-            wx.navigateBack({
-              delta: 1,
+            wx.setStorageSync('login', true);
+            that.setData({
+              bindBottom: '-1000',
+              login: true
             })
           }else{
             wx.showModal({
@@ -193,6 +194,11 @@ Page({
         }
       })
     }
+  },
+  closeBindPhone: function(){
+    this.setData({
+      bindBottom: '-1000'
+    })
   }
   
 })

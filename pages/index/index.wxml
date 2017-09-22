@@ -28,7 +28,7 @@
   <swiper autoplay="" duration="500" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper act" style='height:{{actHeight}}rpx'>  
     <block  wx:key="unique" wx:for="{{act}}" wx:key="key">  
       <swiper-item class="act-list">  
-        <navigator hover-class="none" url="../detail/detail?infoId={{item.infoId}}" wx:for="{{item}}" wx:key="key">
+        <navigator hover-class="none" url="../detail/detail?infoId={{item.infoId}}&actId={{item.id}}" wx:for="{{item}}" wx:key="key">
           <view style="background-image: url({{ipimg}}{{item.actImg}});" class="act-img bg"></view>  
           <view class="decribe">
             <view>{{item.actName}}</view>

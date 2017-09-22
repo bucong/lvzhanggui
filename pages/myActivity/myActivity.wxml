@@ -38,7 +38,7 @@
 <view class='spacing'></view>
 <view class='sign-people'>
   <view class='tit'>报名人员
-    <view bindtap='addPeople' class='fr'>+</view>
+    <view bindtap='addPeople' class='fr' style="display:{{applayStatus==2?'block':'none'}}">+</view>
   </view>
   <view class='sign-box' wx:for="{{actApplyList}}" wx:key="key">
     <view class="sign-list flex {{item.id==operationId?'active':''}}" style='width:{{item.memberGrade}}rpx;right: -{{item.remarks}}rpx;'>

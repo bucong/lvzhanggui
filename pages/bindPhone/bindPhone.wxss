@@ -1,4 +1,12 @@
 /* pages/bindPhone/bindPhone.wxss */
+.bind-phone{
+  position: fixed;
+  transition: .5s;
+  z-index: 100;
+  background: #fff;
+  width: 750rpx;
+  bottom: 0rpx;
+}
 .bind-tit{
   margin: 80rpx 0 50rpx 0;
   text-align: center;
@@ -9,26 +17,26 @@
   text-align: center;
   font-size: 28rpx;
 }
-.form{
+.bind-form{
   margin: 0 60rpx;
 }
-.form view{
+.bind-form view{
   padding-top: 50rpx;
   height: 90rpx;
   line-height: 84rpx;
   border-bottom: 1rpx solid #eee;
   font-size: 30rpx;
 }
-.form view input{
+.bind-form view input{
   width: 400rpx;
   height: 80rpx;
   display: inline-block;
 }
-.form text{
+.bind-form text{
   display: inline-block;
   width: 180rpx;
 }
-.form .send-check{
+.bind-form .send-check{
   display: inline-block;
   padding: 0;
   width: 136rpx;
@@ -39,11 +47,11 @@
   text-align: center;
   border-radius: 10rpx;
 }
-.form .check{
+.bind-form .check{
   width: 300rpx;
 }
-.sub{
-  margin-top: 130rpx;
+.bind-sub{
+  margin: 100rpx auto;
   width: 630rpx;
   color: #fff;
   background: #3dbf7b;

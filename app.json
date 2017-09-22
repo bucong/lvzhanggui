@@ -1,7 +1,9 @@
  {
   "pages":[
     "pages/index/index",
+    "pages/addLocalPeople/addLocalPeople",
     "pages/bindPhone/bindPhone",
+    "pages/signInfo/signInfo",
     "pages/travels/travels",
     "pages/travelDetail/travelDetail",
     "pages/myCoin/myCoin",
@@ -13,7 +15,6 @@
     "pages/myActivity/myActivity",
     "pages/cardDetail/cardDetail",
     "pages/cardList/cardList",
-    "pages/signInfo/signInfo",
     "pages/pay/pay",
     "pages/usualContact/usualContact",
     "pages/order/order",

@@ -1,16 +1,17 @@
 <!--pages/people/people.wxml-->
+<include src="../bindPhone/bindPhone"/> 
 <view class="people">
   <view class="flex info">
-    <view>
+    <view bindtap='login'>
       <image src="{{headImg}}" class="info-head"></image>
       <view class="name">
         {{name}} <image src="../images/white{{sex}}.png" class="sex"></image>
       </view>
     </view>
     <view class="operation">
-      <navigator hover-class="none" url="../peopleEdit/peopleEdit">
+      <view bindtap='loginEdit'>
         <image src="../images/people_03.png" class="opertion-icon"></image>
-      </navigator>
+      </view>
       <!-- <navigator hover-class="none" url="">
         <image src="../images/people_06.png" class="opertion-icon"></image>
       </navigator> -->
@@ -21,11 +22,11 @@
       {{integral}}
       <text>积分</text>
     </view>
-    <navigator hover-class="none" url='../myCoin/myCoin' style="width: 230rpx;">
+    <view style="width: 230rpx;" bindtap='loginCoin'>
       {{coin}}
       <text>金币</text>
-    </navigator>
-    <view class="authority">
+    </view>
+    <view class="authority" style="border: 4rpx solid {{login?'#fff':'#9edfbd'}};color:{{login?'#fff':'#9edfbd'}}">
       {{authority}}
     </view>
   </view>
@@ -50,7 +51,10 @@
   </view>
 </view>
 <!-- tab内容 -->
-<view class='contant'>
+<view class='unloginContent' style="display:{{login?'none':'block'}}">
+  <image src='../images/unlogin_07.png'></image>
+</view>
+<view class='contant' style="display:{{login?'block':'none'}}">
   <!-- 卡劵信息 -->
   <view class="tab-contant cards {{tab=='cards'?'active':''}}">
     <view class='cards-box' style="height: {{cardHeight}}rpx;">
@@ -100,7 +104,9 @@
   <view class="tab-contant contact {{tab=='contact'?'active':''}}">
     <view class="contactTit flex">
       <text>常用联系人</text>
-      <navigator hover-class="none" url="../addPeople/addPeople" redirect>+</navigator>
+      <navigator hover-class="none" url="../addLocalPeople/addLocalPeople">
+        <image src='../images/add.png'></image>
+      </navigator>
     </view>
     <view class="contact-list flex" wx:for="{{contactList}}" wx:key="key">
       <view class="info">
@@ -111,7 +117,7 @@
         <view>电话：<text>{{item.mobile}}</text></view>
         <view>证件号：<text>{{item.idNum}}</text></view>
       </view>
-      <view class='del' data-id='{{item.id}}' bindtap='delContact' style="display:{{item.tag?'none':'block'}}">+</view>
+      <image src='../images/del.png' class='del' data-id='{{item.id}}' bindtap='delContact' style="display:{{item.tag?'none':'block'}}"></image>
     </view>
   </view>
 </view>

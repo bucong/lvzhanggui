@@ -28,8 +28,22 @@
       <view class="del-btn" data-people="{{item.id}}" bindtap="del">删除</view>
     </view>
   </view>
-  <navigator hover-class="none" url="../usualContact/usualContact" class="add-people" redirect><text>+</text> 添加成员</navigator>
+  <navigator hover-class="none" url="../usualContact/usualContact" class="add-people flex" redirect> <image src='../images/add.png'></image> 添加成员</navigator>
 </view>
+
+<view class="cards-box" style="display:{{cards.length==0?'none':'block'}};">
+  <view class="spacing"></view>
+  <radio-group bindchange="radioChange">
+    <view class='flex card-list' wx:for="{{cards}}" wx:key='key'>
+      <view>
+        {{item.name}}:优惠{{item.price}}元
+        <text>(仅优惠本人)</text>
+      </view>
+      <radio value="{{item.couponId}};{{item.price}}" name="pay" checked="{{false}}" />
+    </view>
+  </radio-group>
+</view>
+<view class="spacing"></view>
 <!-- <view class="big-spacing"></view> -->
 <view class='operation-bottom'>
   <view class="safe">
@@ -42,11 +56,12 @@
   <view class="big-spacing"></view>
   <view class="total-fee flex">
     <view>
-      总费用：<text style="color: #2aba6e;">{{totalFee}}</text>元<text style="color:#99a4bf;">(已优惠{{free}}元)</text>
+      总费用：<text style="color: #2aba6e;">{{totalFee-cardDisCount}}</text>元<text style="color:#99a4bf;">(已优惠{{free}}元)</text>
     </view>
     <view class="pay" bindtap="pay">支付</view>
   </view>
 </view>
+<view style='height: 30rpx'></view>
 <view class="meng" style="display: {{safeShow}}"></view>
 <view class="safe-box" style="display: {{safeShow}}">
   <view class="tit">一起去海边俱乐部公约及免责条款：</view>

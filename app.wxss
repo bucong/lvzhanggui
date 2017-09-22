@@ -94,3 +94,62 @@
   background-size: cover !important;
   background-position: center;
 }
+/* 绑定手机号 */
+.bind-phone{
+  position: fixed;
+  transition: .5s;
+  z-index: 1000000;
+  background: #fff;
+  width: 750rpx;
+}
+.bind-tit{
+  margin: 80rpx 0 50rpx 0;
+  text-align: center;
+  font-size: 60rpx;
+}
+.bind-info{
+  margin-bottom: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.bind-form{
+  margin: 0 60rpx;
+}
+.bind-form view{
+  padding-top: 50rpx;
+  height: 90rpx;
+  line-height: 84rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 30rpx;
+}
+.bind-form view input{
+  width: 400rpx;
+  height: 80rpx;
+  display: inline-block;
+}
+.bind-form text{
+  display: inline-block;
+  width: 180rpx;
+}
+.bind-form .send-check{
+  display: inline-block;
+  padding: 0;
+  width: 136rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 26rpx;
+  color: #fff;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.bind-form .check{
+  width: 300rpx;
+}
+.bind-sub{
+  margin: 100rpx auto;
+  width: 630rpx;
+  color: #fff;
+  background: #3dbf7b;
+  font-size: 36rpx;
+  height: 88rpx;
+}

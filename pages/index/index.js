@@ -12,7 +12,7 @@ Page({
     search: '',
     searchbg: '',
     navIcon: [
-      { img: '../images/ind_12.png', name: '我的活动', url: '../people/people?myAct=myAct' },
+      { img: '../images/ind_12.png', name: '我的活动', url: '../people/people?myAct=activity' },
       { img: '../images/ind_14.png', name: '领队风采', url: '../leaderList/leaderList' },
       { img: '../images/ind_09.png', name: '卡券', url: '../cardList/cardList' },
       { img: '../images/ind_06.png', name: '游记', url: '../travels/travels' }
@@ -53,7 +53,7 @@ Page({
       },
       success: function (res) {
         if (res.data.data==null) {
-          wx.setStorageSync('login', 'no');
+          wx.setStorageSync('login', false);
           wx.login({
             success: function (res) {
               var jsCode = res.code;
@@ -83,7 +83,7 @@ Page({
                       },
                       success: function (res) {
                         if (res.data.data) {
-                          wx.setStorageSync('login', 'yes');
+                          wx.setStorageSync('login', true);
                         }
                       },
                       fail: function (res) {
@@ -120,7 +120,7 @@ Page({
              },
           })
         }else{
-          wx.setStorageSync('login', 'yes');
+          wx.setStorageSync('login', true);
         }
       },
       fail: function (res) {

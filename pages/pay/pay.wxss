@@ -38,6 +38,27 @@ page{
   width: 54rpx;
   height: 54rpx;
 }
+.integral{
+  background: #fff;
+  border-top: 1rpx solid #d9d9d9;
+}
+.integral .flex{
+  height: 92rpx;
+  padding: 0 30rpx;
+  width: 600rpx;
+  color: #777;
+  font-size: 26rpx;
+}
+.integral view{
+  font-size: 30rpx;
+  color: #000;
+}
+.integral .pointUser{
+  color: #199013;
+}
+.integral .canUsePoint{
+  color: #ee2828;
+}
 .pay{
   width: 660rpx;
   margin-top: 76rpx;

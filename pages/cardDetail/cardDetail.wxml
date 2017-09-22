@@ -1,4 +1,5 @@
 <!--pages/cardDetail/cardDetail.wxml-->
+<include src="../bindPhone/bindPhone"/> 
 <import src="../../wxParse/wxParse.wxml"/>  
 <view class='show-img'>
   <image src='{{ipimg}}{{img}}'></image> 

@@ -1,4 +1,5 @@
 <!--pages/detail/detail.wxml-->
+<include src="../bindPhone/bindPhone"/> 
 <import src="../../wxParse/wxParse.wxml"/> 
 <swiper indicator-dots="true"
   autoplay="auto" duration="500" class="carousel-box">
@@ -7,7 +8,7 @@
       <view style="background-image: url({{ipimg}}{{item}});" class="carousel-img bg"></view>
     </swiper-item>
   </block>
-  <text>火热报名中</text>
+  <text style="background:{{batchList.length==0?'grey':'#e11a2c'}}">{{batchList.length==0?'活动已结束':'火热报名中'}}</text>
 </swiper>
 <view class="tab flex">
   <view data-tab="intro" class="{{tab=='intro' ? 'active':''}}" bindtap="tab">活动简介</view>
